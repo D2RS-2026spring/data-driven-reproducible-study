@@ -187,6 +187,115 @@ Manual trigger only (`workflow_dispatch`) - no auto-deploy on push.
 - Uses system fonts via fontconfig
 - If fonts fail in PDF, ensure ctex package is installed
 
+## Slide Development Workflow
+
+### Creating/Updating Lecture Slides
+
+When developing or updating lecture slides (`.qmd` files in `slides/` directory), follow this workflow:
+
+#### 1. Preparation
+
+- Read the teaching plan from `teaching-plan.md` for the target lecture
+- Review existing slides in `slides/` for format and style consistency
+- Check reference materials in relevant `.qmd` files
+
+#### 2. Content Development Process
+
+**Step 1: Create Initial Draft**
+- Create new file: `slides/lecture{N}-{topic}.qmd`
+- Use consistent YAML frontmatter (copy from existing slides)
+- Include: title, subtitle, author, date, format settings
+- Add `footer: '[课程仓库](https://github.com/D2RS-2026spring)'`
+
+**Step 2: Structure the Content**
+
+Typical lecture structure (2-4 hours):
+- Course/module introduction (10-20 min)
+- Core concepts/theory (30-60 min)
+- Hands-on practice/demo (30-90 min)
+- Homework assignment (5-10 min)
+- Q&A (5-10 min)
+
+**Step 3: Interactive Refinement**
+
+Discuss with user to finalize:
+- Time allocation for each section
+- Priority content to emphasize
+- Specific examples/case studies to include
+- Homework quantity and difficulty
+- Any content to add/remove
+
+**Step 4: Polish and Finalize**
+
+- Convert all bare URLs to markdown links: `[text](url)`
+- Update placeholder values (QQ numbers, dates, URLs)
+- Add speaker notes (`::: {.notes}`) where needed
+- Ensure consistent formatting with existing slides
+
+#### 3. Key Formatting Guidelines
+
+**Slide Separators:**
+```markdown
+---
+
+## Slide Title
+
+Content here
+```
+
+**Callout Boxes:**
+```markdown
+::: {.callout-important}
+Critical information here
+:::
+
+::: {.callout-tip}
+Helpful tip here
+:::
+
+::: {.callout-warning}
+Warning message here
+:::
+```
+
+**Code Blocks:**
+```markdown
+```python
+# Python code
+print("Hello")
+```
+
+```r
+# R code
+library(ggplot2)
+```
+```
+
+**Tables:**
+```markdown
+| Column 1 | Column 2 |
+|:---------|:---------|
+| Data 1   | Data 2   |
+```
+
+#### 4. Reference Materials
+
+When developing slides, reference these files:
+- `teaching-plan.md` - Overall course structure and content
+- `_quarto.yml` - List of all course materials
+- `slides/lecture1-intro-2026.qmd` - Example of completed slide deck
+- Corresponding `.qmd` files in root for detailed content
+
+#### 5. Quality Checklist
+
+Before finalizing:
+- [ ] All URLs are clickable markdown links
+- [ ] QQ numbers / contact info is up to date
+- [ ] Code examples are syntax-highlighted
+- [ ] Images have proper paths and alt text
+- [ ] Homework instructions are clear
+- [ ] Consistent with course branding (D2RS-2026spring)
+
 ## License
 
 CC BY-NC-SA 4.0 - Creative Commons Attribution-NonCommercial-ShareAlike
