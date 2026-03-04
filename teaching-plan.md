@@ -62,7 +62,7 @@
 
 * [ ] 完成科学上网的配置
 * [ ] 加入 GitHub 群组（在 [ISSUE 1](https://github.com/D2RS-2026spring/members/issues/1) 提交申请）
-* [ ] 从 ChatAnyWhere 提供的模型中，选择 10 个不同的模型回答同一问题，比较一下模型回答的差异，根据你的感觉将模型排序（最佳的排在前面），结果提交到 [ISSUE 2](https://github.com/D2RS-2026spring/members/issues/2) 。
+* [ ] 从 ChatAnyWhere 提供的模型中，选择 5 个不同的模型回答同一问题，比较一下模型回答的差异，根据你的感觉将模型排序（最佳的排在前面），结果提交到 [ISSUE 2](https://github.com/D2RS-2026spring/members/issues/2) 。
 * [ ] 注册并试用 [Google 的大模型](https://gemini.google.com/app?hl=zh)
 
 
