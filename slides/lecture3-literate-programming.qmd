@@ -12,8 +12,8 @@ format:
     preview-links: auto
     css: slide.css
     footer: '[课程仓库](https://github.com/D2RS-2026spring)'
-  pptx:
-    reference-doc: template.pptx
+  pdf:
+    documentclass: ctexbook
 ---
 
 # 课程回顾
