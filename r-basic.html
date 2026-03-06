@@ -578,20 +578,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#r语言简介" id="toc-r语言简介" class="nav-link active" data-scroll-target="#r语言简介"><span class="header-section-number">7.1</span> R语言简介</a>
+  <li><a href="#r在数据科学中的优势" id="toc-r在数据科学中的优势" class="nav-link active" data-scroll-target="#r在数据科学中的优势"><span class="header-section-number">7.1</span> R在数据科学中的优势</a></li>
+  <li><a href="#数据分析流程" id="toc-数据分析流程" class="nav-link" data-scroll-target="#数据分析流程"><span class="header-section-number">7.2</span> 数据分析流程</a></li>
+  <li><a href="#基本概念与操作" id="toc-基本概念与操作" class="nav-link" data-scroll-target="#基本概念与操作"><span class="header-section-number">7.3</span> 基本概念与操作</a>
   <ul class="collapse">
-  <li><a href="#r在数据科学中的长处" id="toc-r在数据科学中的长处" class="nav-link" data-scroll-target="#r在数据科学中的长处"><span class="header-section-number">7.1.1</span> R在数据科学中的长处</a></li>
-  <li><a href="#r语言数据分析示例" id="toc-r语言数据分析示例" class="nav-link" data-scroll-target="#r语言数据分析示例"><span class="header-section-number">7.1.2</span> R语言数据分析示例</a></li>
+  <li><a href="#数据类型与数据结构" id="toc-数据类型与数据结构" class="nav-link" data-scroll-target="#数据类型与数据结构"><span class="header-section-number">7.3.1</span> 数据类型与数据结构</a></li>
+  <li><a href="#基本语法与操作" id="toc-基本语法与操作" class="nav-link" data-scroll-target="#基本语法与操作"><span class="header-section-number">7.3.2</span> 基本语法与操作</a></li>
   </ul></li>
-  <li><a href="#基本概念与操作" id="toc-基本概念与操作" class="nav-link" data-scroll-target="#基本概念与操作"><span class="header-section-number">7.2</span> 基本概念与操作</a>
-  <ul class="collapse">
-  <li><a href="#数据类型与数据结构" id="toc-数据类型与数据结构" class="nav-link" data-scroll-target="#数据类型与数据结构"><span class="header-section-number">7.2.1</span> 数据类型与数据结构</a></li>
-  </ul></li>
-  <li><a href="#基本语法与操作" id="toc-基本语法与操作" class="nav-link" data-scroll-target="#基本语法与操作"><span class="header-section-number">7.3</span> 基本语法与操作</a>
-  <ul class="collapse">
-  <li><a href="#变量赋值与运算符" id="toc-变量赋值与运算符" class="nav-link" data-scroll-target="#变量赋值与运算符"><span class="header-section-number">7.3.1</span> 变量赋值与运算符</a></li>
-  </ul></li>
-  <li><a href="#数据分析软件包介绍" id="toc-数据分析软件包介绍" class="nav-link" data-scroll-target="#数据分析软件包介绍"><span class="header-section-number">7.4</span> 数据分析软件包介绍</a>
+  <li><a href="#数据分析软件包" id="toc-数据分析软件包" class="nav-link" data-scroll-target="#数据分析软件包"><span class="header-section-number">7.4</span> 数据分析软件包</a>
   <ul class="collapse">
   <li><a href="#dplyr包" id="toc-dplyr包" class="nav-link" data-scroll-target="#dplyr包"><span class="header-section-number">7.4.1</span> dplyr包</a></li>
   <li><a href="#ggplot2包" id="toc-ggplot2包" class="nav-link" data-scroll-target="#ggplot2包"><span class="header-section-number">7.4.2</span> ggplot2包</a></li>
@@ -624,132 +618,100 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="r语言简介" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="r语言简介"><span class="header-section-number">7.1</span> R语言简介</h2>
-<p>R语言最初由罗斯·伊哈卡（Ross Ihaka）和罗伯特·詹特尔曼（Robert Gentleman）于1993年开发。它是从S语言演变而来，S语言是一种主要用于数据分析和统计计算的编程语言。R语言的开源特性让它成为数据分析领域的热门选择，逐渐被广泛应用于各个行业，并且因其强大的数据处理和统计分析能力成为数据科学的标准工具之一。</p>
-<section id="r在数据科学中的长处" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="r在数据科学中的长处"><span class="header-section-number">7.1.1</span> R在数据科学中的长处</h3>
-<p>R语言在数据科学中的优势在于其高效的数据处理能力和强大的统计分析工具。无论是简单的描述性统计，还是复杂的机器学习模型，R都能够通过简单的语法实现，减少开发者的工作量。此外，R语言的灵活性使得它能够轻松集成到数据科学的各个环节，从数据预处理到模型评估，再到数据可视化，都能够提供高效的解决方案。</p>
+<p>R语言最初由Ross Ihaka和Robert Gentleman于1993年开发，是从S语言演变而来的开源编程语言。因其强大的数据处理和统计分析能力，R已成为数据科学领域的标准工具之一。</p>
+<section id="r在数据科学中的优势" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="r在数据科学中的优势"><span class="header-section-number">7.1</span> R在数据科学中的优势</h2>
 <ul>
-<li><p>丰富的统计与数据分析功能</p>
-<p>R语言内置了众多统计分析函数，并且有大量的统计模型和算法包可供使用。无论是回归分析、时间序列分析、聚类分析，还是假设检验，R都提供了丰富的工具。同时，R语言的灵活性和可扩展性使得用户能够通过自定义函数满足特殊的统计分析需求。</p></li>
-<li><p>强大的数据可视化能力</p></li>
+<li><strong>丰富的统计与数据分析功能</strong>：内置众多统计分析函数，涵盖回归分析、时间序列分析、聚类分析等</li>
+<li><strong>强大的数据可视化能力</strong>：通过ggplot2等包可生成出版级质量的图表</li>
+<li><strong>广泛的社区支持与软件包生态</strong>：CRAN和Bioconductor提供数以万计的扩展包</li>
 </ul>
-<p>R语言的可视化能力在数据科学中占据了重要地位。通过ggplot2等包，R可以生成各种高质量的图表，如散点图、直方图、箱线图等，帮助用户更好地理解数据的分布与关系。此外，R的图形定制能力非常强，可以精细化调整每个图表元素，满足不同场合的展示需求。</p>
-<ul>
-<li>广泛的社区支持与软件包生态</li>
-</ul>
-<p>R语言的开源社区非常活跃，全球有大量的开发者和数据科学家参与到R语言的开发和优化中。这使得R拥有丰富的软件包生态系统，涵盖了从数据清洗、分析、建模到可视化的方方面面。R的包管理系统（如CRAN）使得用户可以方便地获取、安装和更新这些包，从而极大地提高了开发效率。</p>
 </section>
-<section id="r语言数据分析示例" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="r语言数据分析示例"><span class="header-section-number">7.1.2</span> R语言数据分析示例</h3>
-<p>数据分析通常会有一个流程，如下：</p>
-<ol type="1">
-<li>数据导入与预处理：R 语言可以通过 <code>read.csv()</code>、<code>read_excel()</code> 等函数，轻松读取不同格式的数据文件，导入到R的工作环境中。</li>
-<li>数据清洗与处理：R 提供了多种方法来识别和处理缺失值，例如使用<code>is.na()</code>函数检查缺失数据，并通过删除或填充等方式进行处理。此外，<code>dplyr</code> 和 <code>tidyr</code>包提供了许多便捷的函数，帮助用户清洗和转换数据。</li>
-<li>数据探索与可视化：R 提供了丰富的可视化工具，特别是 <code>ggplot2</code>，可以帮助用户快速绘制各种图表，探索数据的分布、趋势和关联。</li>
-<li>描述性统计分析：描述性统计是对数据的基本总结，通过均值、标准差、频率等统计量帮助分析数据的集中趋势与离散程度。在R中，可以使用 <code>summary()</code>、<code>mean()</code>、<code>sd()</code> 等函数进行描述性统计分析，也可以利用统计分析确定数据分布是否符合正态性。</li>
-<li>多维数据可视化：针对与多维数据，可以借助于坐标分析方法对差异进行可视化。通过绘制散点图矩阵、热图等，用户可以直观地查看不同变量之间的关系和数据结构。</li>
-<li>模型建立与预测分析：在 R 中，使用 <code>lm()</code>、<code>glm()</code> 等函数可以轻松实现线性回归分析。通过回归模型，可以预测一个变量与另一个或者多个变量之间的关系，并进行趋势分析。</li>
-</ol>
+<section id="数据分析流程" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="数据分析流程"><span class="header-section-number">7.2</span> 数据分析流程</h2>
+<p>典型的数据分析流程如下：</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">#| fig-align: center
-graph TD;
-    A[数据导入与预处理] --&gt; B[数据清洗与处理];
-    B --&gt; C[数据探索与可视化];
-    C --&gt; D[描述性统计分析];
-    D --&gt; E[多维数据可视化];
-    E --&gt; F[模型建立与预测分析];
+<pre class="mermaid mermaid-js">graph LR
+    A[数据导入] --&gt; B[数据清洗]
+    B --&gt; C[数据探索]
+    C --&gt; D[统计分析]
+    D --&gt; E[可视化]
+    E --&gt; F[建模预测]
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>下面给出一个简单的案例展示这一过程。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+常用分析包
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>dplyr</code>：数据处理</li>
+<li><code>ggplot2</code>：数据可视化</li>
+<li><code>caret</code>：机器学习</li>
+</ul>
+</div>
+</div>
+<p>下面是一个完整的数据分析示例：</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载必要的库</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)  <span class="co"># 用于数据处理</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  <span class="co"># 用于数据可视化</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)  <span class="co"># 用于机器学习模型</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成一个示例数据框</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># 设置随机种子以确保结果可重复</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),  <span class="co"># 生成100个服从正态分布的随机数</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)  <span class="co"># 生成100个服从正态分布的随机数</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 数据预处理：计算描述性统计</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_x =</span> <span class="fu">mean</span>(x),  <span class="co"># 计算x的均值</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_y =</span> <span class="fu">mean</span>(y),  <span class="co"># 计算y的均值</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_x =</span> <span class="fu">sd</span>(x),  <span class="co"># 计算x的标准差</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_y =</span> <span class="fu">sd</span>(y)  <span class="co"># 计算y的标准差</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印描述性统计结果</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(summary_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成示例数据</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 描述性统计</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_x =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_y =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_x =</span> <span class="fu">sd</span>(x),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_y =</span> <span class="fu">sd</span>(y)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(summary_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      mean_x     mean_y      sd_x      sd_y
 1 0.09040591 -0.1075468 0.9128159 0.9669866</code></pre>
 </div>
 </div>
-<ol type="1">
-<li><p><strong>加载库</strong>：首先，我们加载了<code>dplyr</code>、<code>ggplot2</code>和<code>caret</code>库。<code>dplyr</code>用于数据处理，<code>ggplot2</code>用于数据可视化，而<code>caret</code>用于机器学习模型的训练和评估。</p></li>
-<li><p><strong>生成数据</strong>：使用<code>set.seed(123)</code>确保随机数生成的可重复性。然后，我们创建了一个数据框<code>data</code>，其中包含两个变量<code>x</code>和<code>y</code>，每个变量由100个服从正态分布的随机数组成。</p></li>
-<li><p><strong>数据预处理</strong>：通过<code>dplyr</code>的<code>summarise</code>函数计算数据的描述性统计，包括均值和标准差。这些统计量帮助我们了解数据的基本特征。</p></li>
-</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 数据可视化：绘制散点图</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  <span class="co"># 添加散点图层</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatter Plot of x and y"</span>, <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"y"</span>)  <span class="co"># 添加标题和轴标签</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatter Plot of x and y"</span>, <span class="at">x =</span> <span class="st">"x"</span>, <span class="at">y =</span> <span class="st">"y"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="r-basic_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-r-scatter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-r-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="r-basic_files/figure-html/fig-r-scatter-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-r-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: x和y的散点图
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<ol start="4" type="1">
-<li><strong>数据可视化</strong>：使用<code>ggplot2</code>绘制<code>x</code>和<code>y</code>的散点图。<code>geom_point()</code>函数用于添加散点图层，<code>labs()</code>函数用于设置图表的标题和轴标签。</li>
-</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 机器学习模型：线性回归</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(y <span class="sc">~</span> x, <span class="at">data =</span> data, <span class="at">method =</span> <span class="st">"lm"</span>)  <span class="co"># 使用线性回归模型拟合数据</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印模型结果</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Linear Regression 
-
-100 samples
-  1 predictor
-
-No pre-processing
-Resampling: Bootstrapped (25 reps) 
-Summary of sample sizes: 100, 100, 100, 100, 100, 100, ... 
-Resampling results:
-
-  RMSE       Rsquared    MAE      
-  0.9480047  0.01907853  0.7481421
-
-Tuning parameter 'intercept' was held constant at a value of TRUE</code></pre>
-</div>
-</div>
-<ol start="5" type="1">
-<li><strong>机器学习模型</strong>：使用<code>caret</code>包中的<code>train</code>函数进行线性回归模型的训练。<code>y ~ x</code>表示我们要预测<code>y</code>，<code>data = data</code>指定使用的数据集，<code>method = "lm"</code>表示使用线性回归方法。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 模型评估：查看模型的摘要</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model<span class="sc">$</span>finalModel)  <span class="co"># 打印线性回归模型的详细摘要</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 线性回归模型</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(y <span class="sc">~</span> x, <span class="at">data =</span> data, <span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model<span class="sc">$</span>finalModel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -769,59 +731,30 @@ Multiple R-squared:  0.002453,  Adjusted R-squared:  -0.007726
 F-statistic: 0.241 on 1 and 98 DF,  p-value: 0.6246</code></pre>
 </div>
 </div>
-<ol start="6" type="1">
-<li><strong>模型评估</strong>：通过<code>summary(model$finalModel)</code>查看线性回归模型的详细摘要，包括系数、R平方值等。这些信息帮助我们评估模型的性能和拟合情况。</li>
-</ol>
-<p>整个过程展示了R语言在数据科学中的应用，从数据生成、预处理、可视化到模型训练和评估，体现了其高效的数据处理能力和强大的统计分析工具。</p>
 </section>
-</section>
-<section id="基本概念与操作" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="基本概念与操作"><span class="header-section-number">7.2</span> 基本概念与操作</h2>
-<section id="数据类型与数据结构" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="数据类型与数据结构"><span class="header-section-number">7.2.1</span> 数据类型与数据结构</h3>
-<section id="向量矩阵与数组" class="level4" data-number="7.2.1.1">
-<h4 data-number="7.2.1.1" class="anchored" data-anchor-id="向量矩阵与数组"><span class="header-section-number">7.2.1.1</span> 向量、矩阵与数组</h4>
-<p>R语言的基本数据类型包括数值、字符、逻辑等，而这些基本类型可以组成更复杂的数据结构。向量是R中最常用的数据结构，它是一种具有相同数据类型的元素集合。矩阵则是二维的向量，所有元素都是相同类型的。数组可以是多维的矩阵，适用于更复杂的结构化数据。</p>
+<section id="基本概念与操作" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="基本概念与操作"><span class="header-section-number">7.3</span> 基本概念与操作</h2>
+<section id="数据类型与数据结构" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="数据类型与数据结构"><span class="header-section-number">7.3.1</span> 数据类型与数据结构</h3>
+<section id="向量矩阵与数组" class="level4" data-number="7.3.1.1">
+<h4 data-number="7.3.1.1" class="anchored" data-anchor-id="向量矩阵与数组"><span class="header-section-number">7.3.1.1</span> 向量、矩阵与数组</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个数值向量</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>numeric_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)  <span class="co"># 使用c()函数创建一个包含数值的向量</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个字符向量</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>character_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>)  <span class="co"># 使用c()函数创建一个包含字符的向量</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个逻辑向量</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>logical_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)  <span class="co"># 使用c()函数创建一个包含逻辑值的向量</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个矩阵</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>matrix_example <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)  <span class="co"># 使用matrix()函数创建一个3x3的矩阵，元素为1到9</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个三维数组</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>array_example <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>))  <span class="co"># 使用array()函数创建一个3x4x2的三维数组，元素为1到24</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li>向量是R中最基本的数据结构，可以通过<code>c()</code>函数创建。向量中的所有元素必须是相同的数据类型。在上述代码中，我们创建了数值、字符和逻辑向量。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印向量</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(numeric_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建向量</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>numeric_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>character_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>, <span class="st">"d"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>logical_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建矩阵</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>matrix_example <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建三维数组</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>array_example <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(numeric_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(character_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "a" "b" "c" "d"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(logical_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  TRUE FALSE  TRUE FALSE</code></pre>
-</div>
-</div>
-<ol start="2" type="1">
-<li>矩阵是二维的向量，所有元素也必须是相同的数据类型。可以使用<code>matrix()</code>函数创建矩阵，指定行数<code>nrow</code>和列数<code>ncol</code>。在示例中，我们创建了一个3x3的矩阵，元素为1到9。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印矩阵</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(matrix_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(matrix_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
 [1,]    1    4    7
@@ -829,53 +762,32 @@ F-statistic: 0.241 on 1 and 98 DF,  p-value: 0.6246</code></pre>
 [3,]    3    6    9</code></pre>
 </div>
 </div>
-<ol start="3" type="1">
-<li>数组是多维的矩阵，适用于更复杂的数据结构。可以使用<code>array()</code>函数创建数组，并通过<code>dim</code>参数指定每个维度的大小。在示例中，我们创建了一个3x4x2的三维数组，元素为1到24。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印数组</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(array_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>, , 1
-
-     [,1] [,2] [,3] [,4]
-[1,]    1    4    7   10
-[2,]    2    5    8   11
-[3,]    3    6    9   12
-
-, , 2
-
-     [,1] [,2] [,3] [,4]
-[1,]   13   16   19   22
-[2,]   14   17   20   23
-[3,]   15   18   21   24</code></pre>
-</div>
-</div>
 </section>
-<section id="数据框与列表" class="level4" data-number="7.2.1.2">
-<h4 data-number="7.2.1.2" class="anchored" data-anchor-id="数据框与列表"><span class="header-section-number">7.2.1.2</span> 数据框与列表</h4>
-<p>数据框是 R 中<strong>最常见的数据结构</strong>之一，它类似于数据库中的表格，由不同类型的列组成，可以包含数值、字符、因子等不同类型的数据。列表则是一种更灵活的结构，允许不同类型的数据按顺序存储，其中的元素可以是任何类型的对象，包括向量、数据框、函数等。</p>
+<section id="数据框与列表" class="level4" data-number="7.3.1.2">
+<h4 data-number="7.3.1.2" class="anchored" data-anchor-id="数据框与列表"><span class="header-section-number">7.3.1.2</span> 数据框与列表</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个数据框</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">city =</span> <span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Los Angeles"</span>, <span class="st">"Chicago"</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个列表</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>list_example <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">numeric_vector =</span> numeric_vector,</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">matrix_example =</span> matrix_example,</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">data_frame =</span> data_frame</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建数据框</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">city =</span> <span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Los Angeles"</span>, <span class="st">"Chicago"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建列表</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>list_example <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">numeric_vector =</span> numeric_vector,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">matrix_example =</span> matrix_example,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">data_frame =</span> data_frame</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     name age        city
+1   Alice  25    New York
+2     Bob  30 Los Angeles
+3 Charlie  35     Chicago</code></pre>
 </div>
-<ol type="1">
-<li>数据框是R中最常见的数据结构之一，它类似于数据库中的表格，由不同类型的列组成，可以包含数值、字符、因子等不同类型的数据。在示例中，我们创建了一个包含姓名、年龄和城市的数据框。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印数据框</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(list_example<span class="sc">$</span>data_frame)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     name age        city
 1   Alice  25    New York
@@ -883,200 +795,79 @@ F-statistic: 0.241 on 1 and 98 DF,  p-value: 0.6246</code></pre>
 3 Charlie  35     Chicago</code></pre>
 </div>
 </div>
-<ol start="2" type="1">
-<li>列表则是一种更灵活的结构，允许不同类型的数据按顺序存储，其中的元素可以是任何类型的对象，包括向量、数据框、函数等。在示例中，我们创建了一个包含数值向量、矩阵和数据框的列表。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印列表</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(list_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>$numeric_vector
-[1] 1 2 3 4 5
-
-$matrix_example
-     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9
-
-$data_frame
-     name age        city
-1   Alice  25    New York
-2     Bob  30 Los Angeles
-3 Charlie  35     Chicago</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印列表的元素</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(list_example<span class="sc">$</span>numeric_vector)  <span class="co"># 打印数值向量</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4 5</code></pre>
+<div class="callout-title-container flex-fill">
+Note
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(list_example<span class="sc">$</span>matrix_example)  <span class="co"># 打印矩阵</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(list_example<span class="sc">$</span>data_frame)  <span class="co"># 打印数据框</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     name age        city
-1   Alice  25    New York
-2     Bob  30 Los Angeles
-3 Charlie  35     Chicago</code></pre>
+<div class="callout-body-container callout-body">
+<p>数据框是R中最常用的数据结构，类似于数据库表格，可以包含不同类型的列。</p>
 </div>
 </div>
 </section>
-<section id="因子与日期时间" class="level4" data-number="7.2.1.3">
-<h4 data-number="7.2.1.3" class="anchored" data-anchor-id="因子与日期时间"><span class="header-section-number">7.2.1.3</span> 因子与日期时间</h4>
-<p>因子是R中专门用于表示分类数据的一种数据类型，通常用于处理分类变量，如性别、地区等。日期时间类型则用于存储和处理时间相关的数据，R提供了多种日期时间类型，如Date和POSIXt类型，帮助用户进行时间序列分析和操作。</p>
+<section id="因子与日期时间" class="level4" data-number="7.3.1.3">
+<h4 data-number="7.3.1.3" class="anchored" data-anchor-id="因子与日期时间"><span class="header-section-number">7.3.1.3</span> 因子与日期时间</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个因子</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>factor_example <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>))</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印因子</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(factor_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建因子</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>factor_example <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(factor_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Male   Female Male   Female
 Levels: Female Male</code></pre>
 </div>
-</div>
-<ol type="1">
-<li>因子是R中专门用于表示分类数据的一种数据类型，通常用于处理分类变量，如性别、地区等。在示例中，我们创建了一个包含性别信息的因子。</li>
-</ol>
-<p>因子在绘图时，会自动将分类变量转换为离散的值，从而方便进行可视化。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 设置绘图参数</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印因子</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(factor_example)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 设置因子水平</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>factor_example <span class="ot">&lt;-</span> <span class="fu">factor</span>(factor_example, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>))</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印因子</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(factor_example)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="r-basic_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="2" type="1">
-<li>日期时间类型则用于存储和处理时间相关的数据，R提供了多种日期时间类型，如Date和POSIXt类型，帮助用户进行时间序列分析和操作。在示例中，我们创建了一个包含日期时间的因子。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个日期时间向量</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>date_time_vector <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="fu">c</span>(<span class="st">"2024-01-01 12:00:00"</span>, <span class="st">"2024-01-01 13:00:00"</span>, <span class="st">"2024-01-01 14:00:00"</span>))  </span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印日期时间向量</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(date_time_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建日期时间向量</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>date_time_vector <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="fu">c</span>(<span class="st">"2024-01-01 12:00:00"</span>, <span class="st">"2024-01-01 13:00:00"</span>))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(date_time_vector)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-01-01 12:00:00 CST" "2024-01-01 13:00:00 CST"
-[3] "2024-01-01 14:00:00 CST"</code></pre>
+<pre><code>[1] "2024-01-01 12:00:00 CST" "2024-01-01 13:00:00 CST"</code></pre>
 </div>
 </div>
 </section>
 </section>
+<section id="基本语法与操作" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="基本语法与操作"><span class="header-section-number">7.3.2</span> 基本语法与操作</h3>
+<section id="变量赋值与运算符" class="level4" data-number="7.3.2.1">
+<h4 data-number="7.3.2.1" class="anchored" data-anchor-id="变量赋值与运算符"><span class="header-section-number">7.3.2.1</span> 变量赋值与运算符</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 变量赋值</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 比较运算</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">==</span> y)  <span class="co"># 等于</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">!=</span> y)  <span class="co"># 不等于</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&gt;</span> y)   <span class="co"># 大于</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
 </section>
-<section id="基本语法与操作" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="基本语法与操作"><span class="header-section-number">7.3</span> 基本语法与操作</h2>
-<section id="变量赋值与运算符" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="变量赋值与运算符"><span class="header-section-number">7.3.1</span> 变量赋值与运算符</h3>
-<p>R语言的变量赋值通常使用<code>&lt;-</code>符号，但也可以使用<code>=</code>进行赋值。运算符包括常见的数学运算符（如加法<code>+</code>、减法<code>-</code>、乘法<code>*</code>等），还包括逻辑运算符（如<code>&amp;</code>、<code>|</code>等）和关系运算符（如<code>==</code>、<code>!=</code>、<code>&gt;</code>、<code>&lt;</code>等），这些运算符在R语言中可以广泛应用于不同的数据结构和分析任务。</p>
+<section id="控制结构" class="level4" data-number="7.3.2.2">
+<h4 data-number="7.3.2.2" class="anchored" data-anchor-id="控制结构"><span class="header-section-number">7.3.2.2</span> 控制结构</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个变量</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印变量</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 10</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用=进行赋值</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="dv">20</span>  </span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印变量</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 20</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用==进行比较</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">==</span> y)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用!=进行不等于比较</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">!=</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用&gt;进行大于比较</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&gt;</span> y)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用&lt;进行小于比较</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&lt;</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用&gt;=进行大于等于比较</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&gt;=</span> y)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用&amp;&amp;进行逻辑与运算</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">&amp;&amp;</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用||进行逻辑或运算</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x <span class="sc">||</span> y)   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
-<section id="控制结构条件判断与循环" class="level4" data-number="7.3.1.1">
-<h4 data-number="7.3.1.1" class="anchored" data-anchor-id="控制结构条件判断与循环"><span class="header-section-number">7.3.1.1</span> 控制结构（条件判断与循环）</h4>
-<p>R语言的控制结构包括条件判断（如<code>if</code>、<code>else</code>）和循环（如<code>for</code>、<code>while</code>）。这些结构让我们能够根据不同的条件执行不同的代码，或者重复执行某些任务。条件判断帮助程序根据输入数据的不同决定是否执行某些操作，而循环则在需要多次执行同一任务时非常有用。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个变量</span></span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用if进行条件判断</span></span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {    </span>
-<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is positive"</span>)</span>
-<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is negative"</span>)</span>
-<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 条件判断</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is positive"</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is negative"</span>)</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "x is positive"</code></pre>
 </div>
-</div>
-<ol type="1">
-<li>条件判断帮助程序根据输入数据的不同决定是否执行某些操作。在示例中，我们创建了一个变量<code>x</code>，并使用<code>if</code>进行条件判断。如果<code>x</code>大于0，则打印“x is positive”，否则打印“x is negative”。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用if进行条件判断</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {    </span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is positive"</span>)</span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"x is negative"</span>)</span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>}   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "x is positive"</code></pre>
-</div>
-</div>
-<ol start="2" type="1">
-<li>循环则用于重复执行某些任务。在示例中，我们使用<code>for</code>循环打印了1到5的数字。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用for循环打印1到5的数字</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for循环</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1
 [1] 2
@@ -1086,31 +877,16 @@ Levels: Female Male</code></pre>
 </div>
 </div>
 </section>
-<section id="函数定义与调用" class="level4" data-number="7.3.1.2">
-<h4 data-number="7.3.1.2" class="anchored" data-anchor-id="函数定义与调用"><span class="header-section-number">7.3.1.2</span> 函数定义与调用</h4>
-<p>R语言中的函数定义非常简洁，可以使用<code>function()</code>关键字定义函数，并通过函数名来调用。函数可以有输入参数，也可以有返回值。通过函数的定义与调用，用户可以将复杂的计算逻辑封装成模块化的代码，提高代码的可重用性和可维护性。</p>
+<section id="函数定义与调用" class="level4" data-number="7.3.2.3">
+<h4 data-number="7.3.2.3" class="anchored" data-anchor-id="函数定义与调用"><span class="header-section-number">7.3.2.3</span> 函数定义与调用</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义一个简单的函数</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>my_function <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> <span class="dv">1</span>)</span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li>函数定义非常简洁，可以使用<code>function()</code>关键字定义函数，并通过函数名来调用。在示例中，我们定义了一个简单的函数<code>my_function</code>，它接受一个参数<code>x</code>，并返回<code>x + 1</code>。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 调用函数</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">my_function</span>(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<ol start="2" type="1">
-<li>函数可以有输入参数，也可以有返回值。在示例中，我们定义了一个简单的函数<code>my_function</code>，它接受一个参数<code>x</code>，并返回<code>x + 1</code>。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 调用函数</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">my_function</span>(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义函数</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>my_function <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 调用函数</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">my_function</span>(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
@@ -1118,69 +894,36 @@ Levels: Female Male</code></pre>
 </section>
 </section>
 </section>
-<section id="数据分析软件包介绍" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="数据分析软件包介绍"><span class="header-section-number">7.4</span> 数据分析软件包介绍</h2>
-<p>该部分介绍在数据分析中最常用到的几个软件包。</p>
+<section id="数据分析软件包" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="数据分析软件包"><span class="header-section-number">7.4</span> 数据分析软件包</h2>
 <section id="dplyr包" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="dplyr包"><span class="header-section-number">7.4.1</span> dplyr包</h3>
-<p>dplyr 包是 R 语言中一个非常流行的数据处理包，提供了简洁的语法来进行数据的筛选与过滤。</p>
 <section id="数据筛选与过滤" class="level4" data-number="7.4.1.1">
 <h4 data-number="7.4.1.1" class="anchored" data-anchor-id="数据筛选与过滤"><span class="header-section-number">7.4.1.1</span> 数据筛选与过滤</h4>
-<p>例如，使用<code>filter()</code>函数可以根据条件筛选数据，<code>select()</code>函数可以选择数据框中的某些列，<code>mutate()</code>函数可以添加新的列。这些功能使得数据的清洗和处理变得非常简单高效。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个数据框</span></span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),  </span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">city =</span> <span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Los Angeles"</span>, <span class="st">"Chicago"</span>)</span>
-<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用filter()函数筛选数据</span></span>
-<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> <span class="fu">filter</span>(data_frame, age <span class="sc">&gt;</span> <span class="dv">30</span>)   </span>
-<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印筛选后的数据</span></span>
-<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(filtered_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(age <span class="sc">&gt;</span> <span class="dv">30</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     name age    city
 1 Charlie  35 Chicago</code></pre>
 </div>
 </div>
-<ol type="1">
-<li>dplyr包提供了简洁的语法来进行数据的筛选与过滤。例如，使用<code>filter()</code>函数可以根据条件筛选数据，<code>select()</code>函数可以选择数据框中的某些列，<code>mutate()</code>函数可以添加新的列。这些功能使得数据的清洗和处理变得非常简单高效。</li>
-</ol>
 </section>
 <section id="数据排序与汇总" class="level4" data-number="7.4.1.2">
 <h4 data-number="7.4.1.2" class="anchored" data-anchor-id="数据排序与汇总"><span class="header-section-number">7.4.1.2</span> 数据排序与汇总</h4>
-<p>通过dplyr包，用户可以方便地对数据进行排序（<code>arrange()</code>）以及汇总（<code>summarize()</code>）。排序可以按某一列的值进行升序或降序排列，而汇总则能够基于某些分组进行求和、均值计算等操作。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个数据框</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),</span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">city =</span> <span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Los Angeles"</span>, <span class="st">"Chicago"</span>)</span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用arrange()函数对数据进行排序</span></span>
-<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>sorted_data <span class="ot">&lt;-</span> <span class="fu">arrange</span>(data_frame, age) </span>
-<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印排序后的数据</span></span>
-<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(sorted_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 排序</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     name age        city
 1   Alice  25    New York
 2     Bob  30 Los Angeles
 3 Charlie  35     Chicago</code></pre>
 </div>
-</div>
-<ol type="1">
-<li>通过dplyr包，用户可以方便地对数据进行排序（<code>arrange()</code>）以及汇总（<code>summarize()</code>）。排序可以按某一列的值进行升序或降序排列，而汇总则能够基于某些分组进行求和、均值计算等操作。</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用summarize()函数对数据进行汇总</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>summarized_data <span class="ot">&lt;-</span> <span class="fu">summarize</span>(data_frame, <span class="at">mean_age =</span> <span class="fu">mean</span>(age))</span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印汇总后的数据</span></span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(summarized_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 汇总</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>data_frame <span class="sc">|&gt;</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_age =</span> <span class="fu">mean</span>(age))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  mean_age
 1       30</code></pre>
@@ -1190,375 +933,199 @@ Levels: Female Male</code></pre>
 </section>
 <section id="ggplot2包" class="level3" data-number="7.4.2">
 <h3 data-number="7.4.2" class="anchored" data-anchor-id="ggplot2包"><span class="header-section-number">7.4.2</span> ggplot2包</h3>
-<section id="图形语法概述" class="level4" data-number="7.4.2.1">
-<h4 data-number="7.4.2.1" class="anchored" data-anchor-id="图形语法概述"><span class="header-section-number">7.4.2.1</span> 图形语法概述</h4>
-<p>ggplot2包基于“语法图形”理论，允许用户通过层次化的方式创建图形。一个ggplot图表通常由数据、映射、几何对象、统计变换、坐标系统和主题组成。用户可以通过简单的代码来定义各个元素，使得图形的创建既直观又灵活。</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ggplot2基于”图形语法”理论，通过层次化的方式创建图形。</p>
+</div>
+</div>
+<section id="基本用法" class="level4" data-number="7.4.2.1">
+<h4 data-number="7.4.2.1" class="anchored" data-anchor-id="基本用法"><span class="header-section-number">7.4.2.1</span> 基本用法</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个数据框</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>data_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>),</span>
-<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
-<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">city =</span> <span class="fu">c</span>(<span class="st">"New York"</span>, <span class="st">"Los Angeles"</span>, <span class="st">"Chicago"</span>)</span>
-<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>)   </span>
-<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用ggplot2包创建一个散点图</span></span>
-<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data_frame, <span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">y =</span> city)) <span class="sc">+</span></span>
-<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Scatter Plot of Age and City"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建示例数据</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">sample</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 散点图</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> group)) <span class="sc">+</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"散点图示例"</span>, <span class="at">x =</span> <span class="st">"X轴"</span>, <span class="at">y =</span> <span class="st">"Y轴"</span>) <span class="sc">+</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="r-basic_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+<div id="fig-ggplot2-example" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot2-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="r-basic_files/figure-html/fig-ggplot2-example-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot2-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: ggplot2示例图
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<ol type="1">
-<li>ggplot2包基于“语法图形”理论，允许用户通过层次化的方式创建图形。一个ggplot图表通常由数据、映射、几何对象、统计变换、坐标系统和主题组成。用户可以通过简单的代码来定义各个元素，使得图形的创建既直观又灵活。</li>
-</ol>
 </section>
 <section id="常见图表类型" class="level4" data-number="7.4.2.2">
 <h4 data-number="7.4.2.2" class="anchored" data-anchor-id="常见图表类型"><span class="header-section-number">7.4.2.2</span> 常见图表类型</h4>
-<p>ggplot2支持多种常见的图表类型，如散点图、折线图、直方图、箱线图等。每种图表类型都可以通过改变不同的参数进行调整，满足不同的展示需求。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载ggplot2包，用于数据可视化</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)  <span class="co"># 导入ggplot2库</span></span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建示例数据集，包括x、y两个变量和一个分组变量group</span></span>
-<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb71-6"><a href="#cb71-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),                   <span class="co"># 生成100个服从正态分布的随机数作为x轴数据</span></span>
-<span id="cb71-7"><a href="#cb71-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),                   <span class="co"># 生成100个服从正态分布的随机数作为y轴数据</span></span>
-<span id="cb71-8"><a href="#cb71-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">sample</span>(letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)  <span class="co"># 随机生成100个属于a、b、c三个组的分组数据</span></span>
-<span id="cb71-9"><a href="#cb71-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 折线图</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>time_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>,</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(<span class="dv">50</span>))</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(time_data, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"折线图"</span>) <span class="sc">+</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 直方图</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"green"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"直方图"</span>) <span class="sc">+</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 箱线图</span></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> x, <span class="at">fill =</span> group)) <span class="sc">+</span></span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"箱线图"</span>) <span class="sc">+</span></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>p1</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>p2</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-ggplot2-chart-types-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot2-chart-types-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="r-basic_files/figure-html/fig-ggplot2-chart-types-1.png" class="img-fluid figure-img" width="672">
 </div>
-<ol type="1">
-<li><strong>加载与准备数据</strong>
-<ul>
-<li>首先使用 <code>library(ggplot2)</code> 加载ggplot2包，这是R中非常流行的用于数据可视化的包。<br>
-</li>
-<li>通过 <code>data.frame</code> 函数创建了一个数据集，其中包括两个数值变量 <code>x</code> 和 <code>y</code>，以及一个字符型变量 <code>group</code>。<code>x</code> 和 <code>y</code> 分别使用 <code>rnorm(100)</code> 生成100个正态分布的随机数；<code>group</code> 则利用 <code>sample</code> 从字母 a、b、c 中随机抽取分组信息，模拟数据分组场景。</li>
-</ul></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 散点图示例：展示x和y之间的关系，并根据group分组上色</span></span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> group)) <span class="sc">+</span>  <span class="co"># 设置数据源及映射关系（x、y坐标和颜色对应分组）</span></span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span>       <span class="co"># 添加散点图层，设置点的大小为3，透明度为0.7</span></span>
-<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"散点图示例"</span>, <span class="at">x =</span> <span class="st">"X轴"</span>, <span class="at">y =</span> <span class="st">"Y轴"</span>) <span class="sc">+</span>  <span class="co"># 添加图形标题和坐标轴标签</span></span>
-<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()                         <span class="co"># 应用简洁的主题</span></span>
-<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(scatter_plot)                       <span class="co"># 绘制散点图</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="r-basic_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot2-chart-types-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.3: 常见图表类型
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-ggplot2-chart-types-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot2-chart-types-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="r-basic_files/figure-html/fig-ggplot2-chart-types-2.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot2-chart-types-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.4: 常见图表类型
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<ol start="2" type="1">
-<li><strong>散点图（Scatter Plot）</strong>
-<ul>
-<li>使用 <code>ggplot(data, aes(x = x, y = y, color = group))</code> 设置数据源和美学映射，其中 <code>x</code> 和 <code>y</code> 分别代表横轴和纵轴，<code>color = group</code> 根据分组变量赋予不同颜色。<br>
-</li>
-<li><code>geom_point(size = 3, alpha = 0.7)</code> 添加散点图层，设置点的大小和透明度，帮助提高视觉效果。<br>
-</li>
-<li><code>labs</code> 函数用来添加图表标题和坐标轴标签；<code>theme_minimal()</code> 应用了一个简洁的主题。<br>
-</li>
-<li>最后，<code>print(scatter_plot)</code> 用于在图形设备上输出该图。</li>
-</ul></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 折线图示例：展示随时间变化的数据趋势</span></span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建时间序列数据，time为时间变量，value为累积随机值模拟趋势数据</span></span>
-<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>time_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>,                          <span class="co"># 创建一个从1到50的时间序列</span></span>
-<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(<span class="dv">50</span>))              <span class="co"># 生成50个随机数并计算累积和，模拟数据趋势</span></span>
-<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>line_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(time_data, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> value)) <span class="sc">+</span>  <span class="co"># 设置数据源及映射关系（时间与数值）</span></span>
-<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>   <span class="co"># 添加折线图层，设置线条颜色为蓝色，宽度为1</span></span>
-<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"折线图示例"</span>, <span class="at">x =</span> <span class="st">"时间"</span>, <span class="at">y =</span> <span class="st">"数值"</span>) <span class="sc">+</span>  <span class="co"># 添加图形标题和坐标轴标签</span></span>
-<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()                           <span class="co"># 应用明亮主题</span></span>
-<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(line_plot)                         <span class="co"># 绘制折线图</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="r-basic_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-ggplot2-chart-types-3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot2-chart-types-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="r-basic_files/figure-html/fig-ggplot2-chart-types-3.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot2-chart-types-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.5: 常见图表类型
+</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<ol start="3" type="1">
-<li><strong>折线图（Line Chart）</strong>
-<ul>
-<li>构造一个时间序列数据集 <code>time_data</code>，其中 <code>time</code> 表示时间变量，<code>value</code> 是累积和模拟的数值趋势（利用 <code>cumsum</code> 和 <code>rnorm</code> 生成）。<br>
-</li>
-<li>在 <code>ggplot</code> 中映射时间和数值变量，<code>geom_line(color = "blue", size = 1)</code> 用于绘制折线图，并设置线条的颜色和宽度。<br>
-</li>
-<li>同样通过 <code>labs</code> 添加标题和轴标签，并使用 <code>theme_light()</code> 设置主题。<br>
-</li>
-<li>最后，通过 <code>print(line_plot)</code> 输出折线图。</li>
-</ul></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 直方图示例：展示x变量的分布情况</span></span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>histogram_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span>  <span class="co"># 设置数据源及映射关系（x轴数据）</span></span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>, <span class="at">fill =</span> <span class="st">"green"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span>  </span>
-<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 添加直方图图层，设置每个柱子的宽度为0.5，填充颜色为绿色，边框为黑色，透明度为0.6</span></span>
-<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"直方图示例"</span>, <span class="at">x =</span> <span class="st">"X轴"</span>, <span class="at">y =</span> <span class="st">"频数"</span>) <span class="sc">+</span>  <span class="co"># 添加图形标题和坐标轴标签</span></span>
-<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()                         <span class="co"># 应用经典主题</span></span>
-<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(histogram_plot)                     <span class="co"># 绘制直方图</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="r-basic_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="4" type="1">
-<li><strong>直方图（Histogram）</strong>
-<ul>
-<li>利用同一数据集 <code>data</code> 中的 <code>x</code> 变量创建直方图，通过 <code>aes(x = x)</code> 映射x轴数据。<br>
-</li>
-<li><code>geom_histogram(binwidth = 0.5, fill = "green", color = "black", alpha = 0.6)</code> 绘制直方图，其中 <code>binwidth</code> 控制每个柱子的宽度，<code>fill</code> 和 <code>color</code> 设置柱子的填充和边框颜色，<code>alpha</code> 控制透明度。<br>
-</li>
-<li>添加必要的标题和标签后，使用 <code>theme_classic()</code> 设定图形风格，并通过 <code>print(histogram_plot)</code> 输出直方图。</li>
-</ul></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 箱线图示例：比较不同组别中x变量的分布情况</span></span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> x, <span class="at">fill =</span> group)) <span class="sc">+</span>  <span class="co"># 设置数据源及映射关系（组别作为x轴，x变量作为y轴，同时填充颜色依组别变化）</span></span>
-<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span>                        <span class="co"># 添加箱线图图层</span></span>
-<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"箱线图示例"</span>, <span class="at">x =</span> <span class="st">"组别"</span>, <span class="at">y =</span> <span class="st">"X轴值"</span>) <span class="sc">+</span>  <span class="co"># 添加图形标题和坐标轴标签</span></span>
-<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()                              <span class="co"># 应用黑白主题</span></span>
-<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(boxplot)                           <span class="co"># 绘制箱线图</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="r-basic_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<ol start="5" type="1">
-<li><strong>箱线图（Box Plot）</strong>
-<ul>
-<li>为比较不同分组中 <code>x</code> 变量的分布，箱线图将 <code>group</code> 作为分类变量映射到x轴，<code>x</code> 变量映射到y轴，且利用 <code>fill = group</code> 根据不同组赋予不同填充颜色。<br>
-</li>
-<li><code>geom_boxplot()</code> 添加箱线图层后，通过 <code>labs</code> 设定图表标题和坐标轴标签。<br>
-</li>
-<li>使用 <code>theme_bw()</code> 选择黑白风格主题，并调用 <code>print(boxplot)</code> 输出箱线图。</li>
-</ul></li>
-</ol>
-<p>总体来看，这段代码展示了如何利用ggplot2生成不同类型的图表（散点图、折线图、直方图、箱线图），以及如何通过调整参数（如颜色、大小、透明度、bin宽度和主题）来满足不同的数据展示需求。这些图表类型在数据分析和展示中十分常用，能够直观地帮助理解数据的分布、趋势和比较，为数据科学工作提供了强大的视觉支持。</p>
-</section>
-<section id="图层的叠加" class="level4" data-number="7.4.2.3">
-<h4 data-number="7.4.2.3" class="anchored" data-anchor-id="图层的叠加"><span class="header-section-number">7.4.2.3</span> 图层的叠加</h4>
-<p>ggplot2允许用户通过图层叠加的方式创建复杂的图表。例如，可以在同一个图表中绘制多个几何对象，或者在同一个图表中添加多个统计变换。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 图层叠加示例：在同一个图表中绘制多个几何对象</span></span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------</span></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> x, <span class="at">fill =</span> group)) <span class="sc">+</span>  <span class="co"># 设置数据源及映射关系（组别作为x轴，x变量作为y轴，同时填充颜色依组别变化）</span></span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span>                        <span class="co"># 添加箱线图图层</span></span>
-<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> group), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span>       <span class="co"># 添加散点图层，设置点的大小为3，透明度为0.7</span></span>
-<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"箱线图示例"</span>, <span class="at">x =</span> <span class="st">"组别"</span>, <span class="at">y =</span> <span class="st">"X轴值"</span>) <span class="sc">+</span>  <span class="co"># 添加图形标题和坐标轴标签</span></span>
-<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="r-basic_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
 </div>
 </div>
 </div>
 </section>
-<section id="图形美化与定制" class="level4" data-number="7.4.2.4">
-<h4 data-number="7.4.2.4" class="anchored" data-anchor-id="图形美化与定制"><span class="header-section-number">7.4.2.4</span> 图形美化与定制</h4>
-<p>ggplot2的一个重要特点是图形的美化与定制。用户可以通过<code>theme()</code>函数控制图形的背景、坐标轴、字体等细节，进一步提升图表的可读性和美观性。</p>
+<section id="图层叠加" class="level4" data-number="7.4.2.3">
+<h4 data-number="7.4.2.3" class="anchored" data-anchor-id="图层叠加"><span class="header-section-number">7.4.2.3</span> 图层叠加</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">y =</span> x, <span class="at">fill =</span> group)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> group), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"箱线图叠加散点"</span>) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-ggplot2-layers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ggplot2-layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="r-basic_files/figure-html/fig-ggplot2-layers-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ggplot2-layers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.6: 图层叠加示例
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="stringr包" class="level3" data-number="7.4.3">
 <h3 data-number="7.4.3" class="anchored" data-anchor-id="stringr包"><span class="header-section-number">7.4.3</span> stringr包</h3>
-<section id="字符串处理基础" class="level4" data-number="7.4.3.1">
-<h4 data-number="7.4.3.1" class="anchored" data-anchor-id="字符串处理基础"><span class="header-section-number">7.4.3.1</span> 字符串处理基础</h4>
-<p>stringr包提供了一系列简便的函数来处理字符串数据，包括字符串的切割、拼接、替换等操作。常用的函数包括<code>str_sub()</code>（提取子字符串）、<code>str_c()</code>（字符串拼接）、<code>str_replace()</code>（字符串替换）等。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载stringr包</span></span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义一个示例字符串</span></span>
-<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>text <span class="ot">=</span> <span class="st">"Hello, R language!"</span></span>
-<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用str_sub()提取子字符串，提取从8到9的字符</span></span>
-<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a>sub_text <span class="ot">=</span> <span class="fu">str_sub</span>(text, <span class="dv">8</span>, <span class="dv">9</span>)  <span class="co"># "R "</span></span>
-<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用str_c()拼接字符串</span></span>
-<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a>new_text <span class="ot">=</span> <span class="fu">str_c</span>(text, <span class="st">" It's powerful!"</span>)  <span class="co"># "Hello, R language! It's powerful!"</span></span>
-<span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb77-13"><a href="#cb77-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用str_replace()替换字符串中的单词</span></span>
-<span id="cb77-14"><a href="#cb77-14" aria-hidden="true" tabindex="-1"></a>replaced_text <span class="ot">=</span> <span class="fu">str_replace</span>(text, <span class="st">"language"</span>, <span class="st">"world"</span>)  <span class="co"># "Hello, R world!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li><code>library(stringr)</code>: 加载 <code>stringr</code> 包，以便使用其中的字符串处理函数。</li>
-<li><code>text = "Hello, R language!"</code>: 定义一个字符串变量 <code>text</code>，作为处理对象。</li>
-<li><code>str_sub(text, 8, 9)</code>:
-<ul>
-<li>提取 <code>text</code> 中第 8 到 9 个字符。</li>
-<li>这里 <code>text</code> 从 <code>"Hello, R language!"</code> 变为 <code>"R "</code>（包含空格）。</li>
-</ul></li>
-<li><code>str_c(text, " It's powerful!")</code>:
-<ul>
-<li>拼接 <code>text</code> 和 <code>" It's powerful!"</code>，形成 <code>"Hello, R language! It's powerful!"</code>。</li>
-<li><code>str_c()</code> 自动处理字符串合并，不需要使用 <code>paste()</code> 及其 <code>sep</code> 参数。</li>
-</ul></li>
-<li><code>str_replace(text, "language", "world")</code>:
-<ul>
-<li>将 <code>text</code> 中的 <code>"language"</code> 替换为 <code>"world"</code>，生成 <code>"Hello, R world!"</code>。</li>
-<li><code>str_replace()</code> 只替换第一个匹配项（如需全局替换可用 <code>str_replace_all()</code>）。</li>
-</ul></li>
-</ol>
-<p>这些操作展示了 <code>stringr</code> 包在字符串处理中的简洁性和强大功能。</p>
-</section>
-<section id="模式匹配与替换" class="level4" data-number="7.4.3.2">
-<h4 data-number="7.4.3.2" class="anchored" data-anchor-id="模式匹配与替换"><span class="header-section-number">7.4.3.2</span> 模式匹配与替换</h4>
-<p>stringr包还支持正则表达式的使用，可以进行复杂的模式匹配和替换操作。<code>str_detect()</code>函数可以判断字符串是否符合某个模式，<code>str_replace_all()</code>可以对字符串中的所有匹配项进行替换。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载stringr包</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义一个字符向量</span></span>
-<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>text <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"apple123"</span>, <span class="st">"banana456"</span>, <span class="st">"cherry789"</span>, <span class="st">"date000"</span>)</span>
-<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用str_detect()判断哪些字符串包含数字</span></span>
-<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a>contains_digit <span class="ot">=</span> <span class="fu">str_detect</span>(text, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)  <span class="co"># "\\d+"表示匹配一个或多个数字</span></span>
-<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(contains_digit)  <span class="co"># 输出匹配结果，TRUE表示包含数字，FALSE表示不包含</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>text <span class="ot">&lt;-</span> <span class="st">"Hello, R language!"</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 提取子字符串</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(text, <span class="dv">8</span>, <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE TRUE TRUE TRUE</code></pre>
+<pre><code>[1] "R "</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用str_replace_all()替换所有数字为空字符串</span></span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>text_no_digits <span class="ot">=</span> <span class="fu">str_replace_all</span>(text, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>, <span class="st">""</span>)  <span class="co"># 将所有数字部分替换为空</span></span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(text_no_digits)  <span class="co"># 输出替换后的字符串</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 拼接字符串</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_c</span>(text, <span class="st">" It's powerful!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "apple"  "banana" "cherry" "date"  </code></pre>
+<pre><code>[1] "Hello, R language! It's powerful!"</code></pre>
 </div>
-</div>
-<ol type="1">
-<li><strong>加载stringr包</strong>：<code>library(stringr)</code>用于加载<code>stringr</code>包，以便使用其提供的字符串操作函数。</li>
-<li><strong>定义字符向量</strong>：<code>text = c("apple123", "banana456", "cherry789", "date000")</code>创建一个包含多个字符串的向量，每个字符串都含有字母和数字。</li>
-<li><strong><code>str_detect()</code> 进行模式匹配</strong>：
-<ul>
-<li><code>str_detect(text, "\\d+")</code>用于检测<code>text</code>向量中的字符串是否包含数字（<code>\d+</code>表示匹配一个或多个数字）。</li>
-<li>结果是一个逻辑向量，每个元素对应<code>text</code>中的一个字符串，<code>TRUE</code>表示包含数字，<code>FALSE</code>表示不包含。</li>
-</ul></li>
-<li><strong><code>str_replace_all()</code> 进行全局替换</strong>：
-<ul>
-<li><code>str_replace_all(text, "\\d+", "")</code>将所有匹配<code>\d+</code>（即所有数字）的部分替换为空字符串<code>""</code>，即删除所有数字。</li>
-<li>结果是一个新的字符向量，所有的数字都被移除，仅保留字母部分。</li>
-</ul></li>
-</ol>
-<p>这样，我们使用<code>str_detect()</code>检测字符串是否包含数字，并用<code>str_replace_all()</code>移除所有数字，实现了正则表达式在字符串匹配和替换中的应用。</p>
-</section>
-<section id="文本数据清洗" class="level4" data-number="7.4.3.3">
-<h4 data-number="7.4.3.3" class="anchored" data-anchor-id="文本数据清洗"><span class="header-section-number">7.4.3.3</span> 文本数据清洗</h4>
-<p>在数据分析中，文本数据往往需要进行清洗与标准化。stringr包提供了丰富的工具，可以去除多余的空格、标点符号，进行大小写转换等，从而保证文本数据的一致性。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载stringr包</span></span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 示例文本数据</span></span>
-<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>text_data <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"  Hello, World!  "</span>, <span class="st">"R is AWESOME!!!"</span>, <span class="st">"Data   Science &amp; AI"</span>)</span>
-<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 去除前后空格</span></span>
-<span id="cb82-8"><a href="#cb82-8" aria-hidden="true" tabindex="-1"></a>text_data <span class="ot">=</span> <span class="fu">str_trim</span>(text_data)</span>
-<span id="cb82-9"><a href="#cb82-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-10"><a href="#cb82-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 转换为小写，确保一致性</span></span>
-<span id="cb82-11"><a href="#cb82-11" aria-hidden="true" tabindex="-1"></a>text_data <span class="ot">=</span> <span class="fu">str_to_lower</span>(text_data)</span>
-<span id="cb82-12"><a href="#cb82-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-13"><a href="#cb82-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 去除所有标点符号</span></span>
-<span id="cb82-14"><a href="#cb82-14" aria-hidden="true" tabindex="-1"></a>text_data <span class="ot">=</span> <span class="fu">str_replace_all</span>(text_data, <span class="st">"[[:punct:]]"</span>, <span class="st">""</span>)</span>
-<span id="cb82-15"><a href="#cb82-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-16"><a href="#cb82-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 规范化多个空格为单个空格</span></span>
-<span id="cb82-17"><a href="#cb82-17" aria-hidden="true" tabindex="-1"></a>text_data <span class="ot">=</span> <span class="fu">str_squish</span>(text_data)</span>
-<span id="cb82-18"><a href="#cb82-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-19"><a href="#cb82-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 输出清洗后的文本数据</span></span>
-<span id="cb82-20"><a href="#cb82-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(text_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 替换字符串</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(text, <span class="st">"language"</span>, <span class="st">"world"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "hello world"     "r is awesome"    "data science ai"</code></pre>
+<pre><code>[1] "Hello, R world!"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 正则表达式匹配</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>text_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"apple123"</span>, <span class="st">"banana456"</span>, <span class="st">"cherry789"</span>)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(text_vec, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE TRUE TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(text_vec, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>, <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "apple"  "banana" "cherry"</code></pre>
 </div>
 </div>
-<p><strong>代码逻辑解释</strong></p>
-<ol type="1">
-<li><strong>加载<code>stringr</code>包</strong>：提供字符串处理函数。</li>
-<li><strong>定义文本数据</strong>：包含前后空格、大小写混用、多余空格和标点符号。</li>
-<li><strong>去除前后空格</strong>：使用<code>str_trim()</code>确保文本没有额外的前导和尾随空格。</li>
-<li><strong>转换为小写</strong>：<code>str_to_lower()</code>保证文本大小写一致，避免因大小写不同而导致数据匹配问题。</li>
-<li><strong>去除标点符号</strong>：<code>str_replace_all()</code>用正则表达式<code>[[:punct:]]</code>匹配所有标点并替换为空字符串。</li>
-<li><strong>合并多余空格</strong>：<code>str_squish()</code>将多个连续空格替换为单个空格，保持文本格式整洁。</li>
-<li><strong>输出结果</strong>：清洗后的文本更规范，适用于进一步分析。</li>
-</ol>
-</section>
 </section>
 <section id="tidyr包" class="level3" data-number="7.4.4">
 <h3 data-number="7.4.4" class="anchored" data-anchor-id="tidyr包"><span class="header-section-number">7.4.4</span> tidyr包</h3>
-<section id="数据整形与转换" class="level4" data-number="7.4.4.1">
-<h4 data-number="7.4.4.1" class="anchored" data-anchor-id="数据整形与转换"><span class="header-section-number">7.4.4.1</span> 数据整形与转换</h4>
-<p>tidyr包提供了方便的数据整形与转换工具，帮助用户将数据从一个格式转换为另一个格式，通常用于将“宽格式数据”转换为“长格式数据”，或者反之。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载tidyr和dplyr包</span></span>
-<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)   <span class="co"># 提供数据整形功能</span></span>
-<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)   <span class="co"># 方便数据操作</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol type="1">
-<li><strong>创建“宽格式”数据</strong>
-<ul>
-<li><code>wide_data</code> 代表一个学生成绩表，每一行是一个学生，每一列代表一个科目及其成绩。</li>
-</ul></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个“宽格式”数据框</span></span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>wide_data <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),       <span class="co"># 唯一标识</span></span>
-<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Math =</span> <span class="fu">c</span>(<span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">88</span>),  <span class="co"># 数学成绩</span></span>
-<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Science =</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">78</span>, <span class="dv">95</span>), <span class="co"># 科学成绩</span></span>
-<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">English =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">89</span>, <span class="dv">92</span>)  <span class="co"># 英语成绩</span></span>
-<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a>wide_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  ID Math Science English
-1  1   90      80      85
-2  2   85      78      89
-3  3   88      95      92</code></pre>
-</div>
-</div>
-<ol start="2" type="1">
-<li><strong><code>pivot_longer()</code>：宽转长</strong>
-<ul>
-<li><code>cols = Math:English</code> 选取需要转换的列，即各科成绩。<br>
-</li>
-<li><code>names_to = "Subject"</code> 创建一个新列，用于存放原来的列名（学科名称）。<br>
-</li>
-<li><code>values_to = "Score"</code> 创建一个新列，用于存放原来的数据值（成绩）。<br>
-</li>
-<li>转换后，每个学生的成绩由多列合并成两列（学科 + 分数），适用于按学科进行分析。</li>
-</ul></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用pivot_longer()将宽格式转换为长格式</span></span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">=</span> wide_data <span class="sc">%&gt;%</span></span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> Math<span class="sc">:</span>English,  <span class="co"># 需要转换的列（即各科成绩）</span></span>
-<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Subject"</span>,  <span class="co"># 新列存放原来的列名（学科）</span></span>
-<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Score"</span>    <span class="co"># 新列存放原来的数值（成绩）</span></span>
-<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a>long_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建宽格式数据</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>wide_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Math =</span> <span class="fu">c</span>(<span class="dv">90</span>, <span class="dv">85</span>, <span class="dv">88</span>),</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Science =</span> <span class="fu">c</span>(<span class="dv">80</span>, <span class="dv">78</span>, <span class="dv">95</span>),</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">English =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">89</span>, <span class="dv">92</span>)</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 宽转长</span></span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> wide_data <span class="sc">|&gt;</span></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> Math<span class="sc">:</span>English,</span>
+<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Subject"</span>,</span>
+<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Score"</span></span>
+<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb49-18"><a href="#cb49-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(long_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 3
      ID Subject Score
@@ -1573,25 +1140,13 @@ Levels: Female Male</code></pre>
 8     3 Science    95
 9     3 English    92</code></pre>
 </div>
-</div>
-<ol start="3" type="1">
-<li><strong><code>pivot_wider()</code>：长转宽</strong>
-<ul>
-<li><code>names_from = Subject</code> 让原本的“学科”值重新变为列名。<br>
-</li>
-<li><code>values_from = Score</code> 让成绩数据回到对应的学科列下。<br>
-</li>
-<li>这样数据恢复为原始的“宽格式”，适用于数据可视化或建模。</li>
-</ul></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用pivot_wider()将长格式转换回宽格式</span></span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>wide_data_again <span class="ot">=</span> long_data <span class="sc">%&gt;%</span></span>
-<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> Subject, <span class="co"># 重新展开为原来的列名（学科）</span></span>
-<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> Score   <span class="co"># 对应的成绩填充回去</span></span>
-<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>wide_data_again</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 长转宽</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>wide_data_again <span class="ot">&lt;-</span> long_data <span class="sc">|&gt;</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> Subject,</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> Score</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(wide_data_again)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
      ID  Math Science English
@@ -1601,48 +1156,33 @@ Levels: Female Male</code></pre>
 3     3    88      95      92</code></pre>
 </div>
 </div>
-<p>tidyr中的<code>pivot_longer()</code>和<code>pivot_wider()</code>函数分别用于实现宽表和长表之间的转换，帮助数据分析师根据不同分析需求选择合适的数据格式。</p>
-</section>
-<section id="数据变换与重组" class="level4" data-number="7.4.4.2">
-<h4 data-number="7.4.4.2" class="anchored" data-anchor-id="数据变换与重组"><span class="header-section-number">7.4.4.2</span> 数据变换与重组</h4>
-<p>tidyr 还提供了<code>spread()</code>和<code>gather()</code>等函数，可以帮助用户进行数据的转置和重组。例如，<code>gather()</code>函数可以将宽格式数据转换为长格式数据，而<code>spread()</code>则可以将长格式数据转换为宽格式。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用gather()函数将宽格式数据转换为长格式数据</span></span>
-<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> <span class="fu">gather</span>(data_frame, <span class="at">key =</span> <span class="st">"variable"</span>, <span class="at">value =</span> <span class="st">"value"</span>, <span class="sc">-</span>name)</span>
-<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 打印转换后的数据</span></span>
-<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(long_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     name variable       value
-1   Alice      age          25
-2     Bob      age          30
-3 Charlie      age          35
-4   Alice     city    New York
-5     Bob     city Los Angeles
-6 Charlie     city     Chicago</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
 </div>
-</section>
+<div class="callout-body-container callout-body">
+<p><code>pivot_longer()</code>和<code>pivot_wider()</code>是tidyr包的核心函数，分别用于宽长格式转换。早期版本使用的<code>gather()</code>和<code>spread()</code>已过时。</p>
+</div>
+</div>
 </section>
 <section id="数据检查和清洗" class="level3" data-number="7.4.5">
 <h3 data-number="7.4.5" class="anchored" data-anchor-id="数据检查和清洗"><span class="header-section-number">7.4.5</span> 数据检查和清洗</h3>
-<section id="缺失值检查" class="level4" data-number="7.4.5.1">
-<h4 data-number="7.4.5.1" class="anchored" data-anchor-id="缺失值检查"><span class="header-section-number">7.4.5.1</span> 缺失值检查</h4>
-<p>tidyr包提供了<code>complete()</code>函数，可以检查数据中是否存在缺失值，并返回一个包含缺失值的布尔矩阵。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建一个包含缺失值的数据框</span></span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>data_with_missing <span class="ot">=</span> <span class="fu">data.frame</span>(</span>
-<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
-<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>, <span class="st">"David"</span>),</span>
-<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="cn">NA</span>, <span class="dv">88</span>, <span class="dv">92</span>)</span>
-<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>使用 <code>complete()</code> 函数检查缺失值。</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用complete()检查缺失值</span></span>
-<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>complete_data <span class="ot">=</span> <span class="fu">complete</span>(data_with_missing)</span>
-<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(complete_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建含缺失值的数据框</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>data_with_missing <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ID =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>, <span class="st">"David"</span>),</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(<span class="dv">95</span>, <span class="cn">NA</span>, <span class="dv">88</span>, <span class="dv">92</span>)</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 检查缺失值</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>complete_data <span class="ot">&lt;-</span> <span class="fu">complete</span>(data_with_missing)</span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(complete_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  ID    Name Score
 1  1   Alice    95
@@ -1655,10 +1195,9 @@ Levels: Female Male</code></pre>
 
 </section>
 </section>
-</section>
 
 </main> <!-- /main -->
-<script src="https://giscus.app/client.js" data-repo="D2RS-2025spring/data-driven-reproducible-study" data-repo-id="R_kgDONqlH8A" data-category="General" data-category-id="DIC_kwDONqlH8M4CnKvW" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous" async="">
+<script src="https://giscus.app/client.js" data-repo="D2RS-2026spring/data-driven-reproducible-study" data-repo-id="R_kgDONqlH8A" data-category="General" data-category-id="DIC_kwDONqlH8M4CnKvW" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous" async="">
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
