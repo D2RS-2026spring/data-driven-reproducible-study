@@ -72,6 +72,18 @@
 
 ### 第2次课：数据、代码的保存和备份
 
+::: {.callout-tip}
+以数据分析的 Whole Game 为引入，强调原始数据 → Tidy Data → 分析/可视化的工作流，再讲解如何管理和备份数据与代码文件。
+:::
+
+0. 数据分析的 Whole Game（引入，约20分钟）
+  * 为什么要学数据整理？（80% 的时间在整理数据）
+  * 数据分析的完整流程：**原始数据 → Tidy Data → 分析 → 可视化 → 报告**
+  * 什么是原始数据？（宽格式、混乱列名、多表合并等常见问题）
+  * 什么是 Tidy Data？（Hadley Wickham 三原则：每列是变量、每行是观测、每格是值）
+  * 为什么必须先整理为 Tidy Data？（对比原始格式与 Tidy Data 的 ggplot2 使用体验）
+  * R 数据处理工具链：`readr` → `tidyr` → `dplyr` → `ggplot2`（tidyverse 生态）
+  * 【演示】一个完整的 Whole Game：读取 → 整理（`pivot_longer`）→ 分析（`group_by + summarise`）→ 可视化（`ggplot2`）
 1. 文件系统（养成结构化的文件储存习惯）
   * 路径（【强调】提倡全英文、有意义的路径名称）
   * 格式（扩展名）
@@ -95,6 +107,13 @@
 
 - `git-basic.qmd`
 - `collaboration-with-global-developers.qmd`
+- `grouped-data-analysis.qmd`（Whole Game 部分参考）
+- `dplyr-cheatsheet.qmd`
+- `ggplot2-cheatsheet.qmd`
+
+**参考课件**
+
+- `slides/lecture2-data-backup.qmd`（含"数据分析的 Whole Game"章节）
 
 **课后作业**
 
