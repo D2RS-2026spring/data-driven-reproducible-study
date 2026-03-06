@@ -15,6 +15,8 @@ format:
     footer: '[课程仓库](https://github.com/D2RS-2026spring)'
   pdf:
     documentclass: ctexbook
+    papersize: a4
+    geometry: "left=1.5cm,right=1.5cm,top=2cm,bottom=2cm"
 ---
 
 # 课程回顾
@@ -66,13 +68,13 @@ format:
 
 ---
 
-## 数据分析的完整流程 {.smaller}
+## 数据分析的完整流程 {.smaller .center}
 
 ```{mermaid}
 flowchart LR
-    A["📥 原始数据\nRaw Data"] -->|"读取\nreadr"| B["🔧 整理数据\nTidy Data"]
-    B -->|"变换\ndplyr"| C["🔍 探索分析\nEDA"]
-    B -->|"可视化\nggplot2"| D["📊 图表\nPlots"]
+    A["📥 原始数据\nRaw Data"] -->|"读取"| B["🔧 整洁数据\nTidy Data"]
+    B -->|"变换/降维"| C["🔍 探索分析\nEDA"]
+    B -->|"可视化"| D["📊 图表\nPlots"]
     C --> E["📝 报告\nReport"]
     D --> E
 
@@ -181,18 +183,24 @@ ggplot(tidy_data,
 
 ---
 
-## R 数据处理工具链：tidyverse {.smaller}
+## R 数据处理工具链：tidyverse {.smaller .center}
+
 
 ```{mermaid}
 flowchart LR
-    A["📂 文件\n.csv / .xlsx / .txt"] -->|"readr\nread_csv()"| B["📊 数据框\ndata.frame"]
-    B -->|"tidyr\npivot_longer()\npivot_wider()"| C["✅ Tidy Data"]
-    C -->|"dplyr\nfilter() select()\nmutate() group_by()"| D["🔍 分析就绪的数据"]
-    D -->|"ggplot2\naes() + geom_*()"| E["📈 可视化"]
-    D -->|"stats\nt.test() lm()"| F["📐 统计模型"]
-    E --> G["📝 Quarto 报告"]
+    A["📂 文件\n.csv / .xlsx / .txt"] -->|"readr"| B["📊 数据框\ndata.frame"]
+    B -->|"tidyr"| C["✅ Tidy Data"]
+```
+
+```{mermaid}
+flowchart LR
+    C["✅ Tidy Data"] -->|"dplyr"| D["🔍 分析就绪的数据"]
+    D["🔍 分析就绪的数据"] -->|ggplot2| E["📈 可视化"]
+    D -->|"package"| F["📐 统计模型"]
+    E --> G["📝 研究报告"]
     F --> G
 ```
+
 
 ::: {.callout-note}
 **tidyverse** 是一套设计理念统一的 R 包集合，所有包都基于 Tidy Data 设计，无缝衔接。
@@ -260,6 +268,23 @@ ggplot(summary_data, aes(x = 处理, y = 均值, fill = 处理)) +
 
 后续课程会深入学习每个环节的具体方法。
 :::
+
+---
+
+## 💊 R：包治百病 {.smaller}
+
+::: {.callout-tip}
+### 🏥 无论你研究什么，R 都有对口的"特效药"
+:::
+
+| 研究领域 | 💊 特效药（R 包） | 疗效 |
+|:----------|:-------------|:-------------------|
+| 🛰️ 遥感与农业遥感 | `terra` / `sf` | 栅格矢量，卫星图像手到擒来 |
+| 🌱 土壤学与制图 | `aqp` / `ithir` | 土壤剖面、数字制图一条龙 |
+| 🦠 微生物与生态 | `phyloseq` / `vegan` | 菌群多样性分析"金标准"- |
+| 🌿 环境规划建模 | `tmap` / `EnvStats` | 地图好看，导师点名表扬 |
+| 📊 **通用（必装）** | **`tidyverse`** | **缺它啥都干不了** |
+
 
 ---
 
@@ -585,6 +610,7 @@ project/
 
 ::: {.columns}
 ::: {.column width=30%}
+
 ```{mermaid}
 flowchart TD
     A[工作区<br>Working Directory] -->|git add| B[暂存区<br>Staging Area]
@@ -893,7 +919,7 @@ _book/
 
 ---
 
-## 作业 3：Review 要求
+## 作业 3：Review 要求 {.smaller}
 
 ::: {.callout-warning}
 请等待邀请！
@@ -923,7 +949,7 @@ _book/
 
 ---
 
-## 总结与答疑 {.column}
+## 总结与答疑 {.smaller}
 
 ::: {.callout-caution}
 ASK ME ANYTHING...
