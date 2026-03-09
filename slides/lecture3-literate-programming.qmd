@@ -31,7 +31,10 @@ format:
 - [ ] 文件存储与备份策略
 - [ ] 提交 PR（学号.md 文件）
 - [ ] Review 5 个同学的 PR
+
+**对作业典型问题的说明**
 :::
+
 
 ---
 
@@ -938,21 +941,12 @@ title: "张三的个人主页"
 
 - **邮箱**：gaoch@mail.hzau.edu.cn
 - **QQ 群**：1090706962
-- **GitHub Issues**：课程相关问题欢迎提 Issue
+- **GitHub Issues**：课程相关问题 [欢迎提 Issue](https://github.com/D2RS-2026spring/AskMeAnything/issues/new?template=ama.md&title=%5BAMA%5D)
 
 ## 感谢聆听！ 🎉
 
 ::: {.callout-tip icon=false}
 ### 课后作业清单
 
-- [ ] 安装 Positron 和 Cline
-- [ ] 创建个人 Quarto 网站（首页 + 关于）
-- [ ] 发布到 GitHub Pages
-- [ ] 提交网站链接到 GitHub ISSUE
-
-**遇到问题？**
-
-- 💬 QQ 群：1090706962
-- 🐛 GitHub Issues：https://github.com/D2RS-2026spring/members/issues
-- 📧 邮箱：gaoch@mail.hzau.edu.cn
-:::
+- [ ] 安装 Positron 和 Cline 等工具的安装配置
+- [ ] 使用他们创建一个简单的个人 Quarto 网站（首页 + 关于），发布到 GitHub Pages，提交网站链接到 [GitHub ISSUE 99](https://github.com/D2RS-2026spring/members/issues/99)

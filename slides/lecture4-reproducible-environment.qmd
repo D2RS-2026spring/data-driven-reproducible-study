@@ -213,16 +213,233 @@ stash    status     # 显示所有以 s 开头的子命令
 
 # 命令行中的环境变量
 
-## 系统命令行中的环境变量
+## 系统命令行中的环境变量 {.smaller}
+
+**什么是环境变量？**
+
+环境变量是操作系统中存储配置信息的键值对，影响程序运行时的行为。
+
+**常用系统环境变量**：
+
+| 变量名 | 作用 | 示例 |
+|:-------|:-----|:-----|
+| `PATH` | 可执行程序搜索路径 | `/usr/local/bin:/usr/bin` |
+| `HOME` | 用户主目录 | `/Users/username` |
+| `LANG` | 系统语言设置 | `zh_CN.UTF-8` |
+| `EDITOR` | 默认文本编辑器 | `vim` 或 `code` |
+
+**查看环境变量**：
+
+```bash
+# Linux/Mac
+echo $PATH
+env | grep PATH
+
+# Windows
+echo %PATH%
+set PATH
+```
 
 ---
 
-## R 命令行中的环境变量
+## 修改环境变量 {.smaller}
+
+**临时修改（仅当前终端会话）**：
+
+```bash
+# Linux/Mac
+export PATH="/usr/local/bin:$PATH"
+export MY_VAR="hello"
+
+# Windows CMD
+set PATH=C:\new\path;%PATH%
+
+# Windows PowerShell
+$env:PATH = "C:\new\path;$env:PATH"
+```
+
+**永久修改**：
+
+```bash
+# Linux/Mac: 写入 ~/.bashrc 或 ~/.zshrc
+echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc  # 立即生效
+
+# Windows: 系统设置 → 环境变量
+```
 
 ---
 
-## Python 命令行中的环境变量
+## R 中的环境变量 {.smaller}
 
+**查看 R 环境变量**：
+
+```r
+# 查看所有环境变量
+Sys.getenv()
+
+# 查看特定变量
+Sys.getenv("HOME")
+Sys.getenv("R_LIBS_USER")
+
+# 查看 R 相关路径
+R.home()           # R 安装目录
+.libPaths()        # 包安装路径
+getwd()            # 当前工作目录
+```
+
+**设置 R 环境变量**：
+
+```r
+# 临时设置（当前会话）
+Sys.setenv(MY_VAR = "value")
+
+# 永久设置：写入 ~/.Renviron 文件
+# R_LIBS_USER=~/R/packages
+# CRAN=https://mirrors.ustc.edu.cn/CRAN/
+```
+
+---
+
+## R 启动时的配置文件 {.smaller}
+
+**R 启动时自动加载的文件**：
+
+| 文件 | 位置 | 用途 |
+|:-----|:-----|:-----|
+| `.Renviron` | 用户主目录 | 设置环境变量 |
+| `.Rprofile` | 用户主目录或项目根目录 | 启动时执行的 R 代码 |
+| `Rprofile.site` | R 安装目录/etc | 系统级配置 |
+
+**项目级 `.Rprofile` 示例**：
+
+```r
+# 项目根目录 .Rprofile
+message("Loading project settings...")
+
+# 设置镜像
+options(repos = c(CRAN = "https://mirrors.ustc.edu.cn/CRAN/"))
+
+# 设置项目库路径
+.libPaths(c("renv/library", .libPaths()))
+
+# 加载常用包
+if (interactive()) {
+  library(usethis)
+}
+```
+
+---
+
+## Python 中的环境变量 {.smaller}
+
+**查看 Python 环境变量**：
+
+```python
+import os
+
+# 查看所有环境变量
+print(os.environ)
+
+# 查看特定变量
+print(os.getenv('HOME'))
+print(os.environ.get('PATH'))
+
+# 查看 Python 相关路径
+import sys
+print(sys.path)      # 模块搜索路径
+print(sys.executable)  # Python 解释器路径
+print(sys.prefix)    # 虚拟环境路径
+```
+
+---
+
+## Python 虚拟环境原理 {.smaller}
+
+**虚拟环境如何工作？**
+
+```bash
+# 激活虚拟环境时，实际上是在修改环境变量
+source .venv/bin/activate
+
+# 做了什么？
+# 1. 修改 PATH: .venv/bin 移到最前面
+# 2. 修改 VIRTUAL_ENV 变量
+# 3. 修改 PS1（命令行提示符）
+```
+
+**Python 查找模块的顺序**：
+
+```python
+import sys
+print("\n".join(sys.path))
+# 1. 当前目录
+# 2. 虚拟环境 site-packages
+# 3. 系统 site-packages
+```
+
+---
+
+## Python 配置文件 {.smaller}
+
+**常见配置文件**：
+
+| 文件 | 用途 |
+|:-----|:-----|
+| `requirements.txt` | pip 依赖列表 |
+| `pyproject.toml` | 现代 Python 项目配置 |
+| ` Pipfile` | pipenv 依赖管理 |
+| `.env` | 环境变量存储（需 python-dotenv）|
+
+**`.env` 文件示例**：
+
+```bash
+# 项目根目录 .env
+OPENAI_API_KEY=sk-xxx
+DATABASE_URL=postgresql://localhost/db
+DEBUG=True
+```
+
+```python
+# 在代码中加载
+from dotenv import load_dotenv
+load_dotenv()  # 自动读取 .env 文件
+api_key = os.getenv('OPENAI_API_KEY')
+```
+
+---
+
+## 环境变量层次总结 {.smaller}
+
+```{mermaid}
+flowchart TB
+    subgraph 系统层
+        A1[PATH] --> A2[HOME]
+        A2 --> A3[LANG]
+    end
+
+    subgraph R层
+        B1[.Renviron] --> B2[.Rprofile]
+        B2 --> B3["renv/"]
+    end
+
+    subgraph Python层
+        C1[.env] --> C2["venv/"]
+        C2 --> C3[pyproject.toml]
+    end
+
+    subgraph 系统级
+        D1[Docker容器]
+    end
+
+    系统层 --> R层
+    系统层 --> Python层
+    系统层 --> 系统级
+```
+
+::: {.callout-important}
+**核心原则**：每一层都建立在前一层之上，形成完整的环境隔离
+:::
 
 ---
 
@@ -254,7 +471,7 @@ stash    status     # 显示所有以 s 开头的子命令
 
 ---
 
-## 硬件架构与操作系统
+## 硬件架构与操作系统 {.smaller}
 
 | 架构/系统 | 特点 | 适用场景 |
 |:---------|:-----|:---------|
@@ -270,9 +487,71 @@ stash    status     # 显示所有以 s 开头的子命令
 
 ---
 
-## 保证系统级的一致性：Docker
+## 保证系统级的一致性：Docker {.smaller}
 
+**Docker 是什么？**
 
+::: {.callout-note}
+**容器化技术**：将应用程序及其所有依赖打包成一个独立的容器，确保在任何环境中运行结果一致。
+:::
+
+**Docker vs 虚拟机**：
+
+| 特性 | Docker 容器 | 虚拟机 |
+|:-----|:------------|:-------|
+| **启动速度** | 秒级 | 分钟级 |
+| **资源占用** | 轻量（共享内核） | 重量级（完整 OS） |
+| **隔离级别** | 进程级 | 硬件级 |
+| **适用场景** | 应用部署 | 完整系统模拟 |
+
+---
+
+## Dockerfile 示例 {.smaller}
+
+**课程项目的 Docker 配置**：
+
+```dockerfile
+# 基于官方 R 镜像
+FROM rocker/r-ver:4.3.0
+
+# 安装系统依赖
+RUN apt-get update && apt-get install -y \
+    libcurl4-openssl-dev \
+    libssl-dev \
+    libxml2-dev
+
+# 安装 R 包
+RUN R -e "install.packages('renv')"
+
+# 复制项目文件
+COPY . /project
+WORKDIR /project
+
+# 恢复 R 环境
+RUN R -e "renv::restore()"
+
+# 渲染 Quarto 文档
+CMD ["quarto", "render"]
+```
+
+---
+
+## Docker 常用命令 {.smaller}
+
+| 命令 | 作用 |
+|:-----|:-----|
+| `docker build -t myimage .` | 构建镜像 |
+| `docker run myimage` | 运行容器 |
+| `docker run -it myimage bash` | 交互式进入容器 |
+| `docker ps` | 查看运行中的容器 |
+| `docker-compose up` | 启动多容器应用 |
+
+**Docker 的优势**：
+
+- ✅ 完全隔离的环境
+- ✅ 一次构建，到处运行
+- ✅ 版本控制（镜像标签）
+- ✅ 云端部署友好
 
 ---
 
@@ -296,15 +575,23 @@ R 的包管理工具，类似 Python 的 venv/conda
 
 ## renv 工作流程
 
+### 记录状态
+
 ```{mermaid}
 flowchart LR
-    A[项目目录] --> B[renv::init]
+    A[项目目录] --> B["renv::init()"]
     B --> C[安装/更新包]
-    C --> D[renv::snapshot]
-    D --> E[renv.lock]
-    E -->|分享| F[协作者]
-    F --> G[renv::restore]
-    G --> H[相同环境]
+    C --> D["renv::snapshot()"]
+    D --> E["renv.lock"]
+```
+
+### 恢复环境
+
+```{mermaid}
+flowchart LR
+    E[renv.lock] -->|分享| F[协作者]
+    F --> G["renv::restore()"]
+    G --> H[相同 R 环境]
 ```
 
 ---
@@ -321,7 +608,7 @@ flowchart LR
 
 ---
 
-## renv 实战
+## renv 实战 {.smaller}
 
 ```r
 # 1. 初始化项目环境
@@ -366,13 +653,17 @@ renv::restore()
 
 ## uv 核心命令
 
+::: {.callout-tip}
+使用 uv 进行 Python 环境管理是课程的推荐方式。
+:::
+
 | 命令 | 作用 |
-|:-----|:-----|
+|:----------------------|:-----|
 | `uv venv` | 创建虚拟环境 |
 | `uv pip install` | 安装包 |
-| `uv pip compile` | 生成锁定文件 |
-| `uv pip sync` | 同步环境 |
-| `uv run` | 在环境中运行命令 |
+| `uv pip freeze > FILE` | 生成锁定文件 |
+| `uv pip sync FILE` | 同步环境 |
+| `uv pip install -r FILE` | 在环境中运行命令 |
 
 ---
 
@@ -380,7 +671,7 @@ renv::restore()
 
 ```bash
 # 1. 创建虚拟环境
-uv venv .venv
+uv venv
 
 # 2. 激活环境
 source .venv/bin/activate  # Linux/Mac
@@ -395,52 +686,6 @@ uv pip freeze > requirements.txt
 # 5. 在新环境恢复
 uv pip install -r requirements.txt
 ```
-
----
-
-## Conda environment.yml
-
-**课程项目的环境配置**（推荐方式）：
-
-```yaml
-name: data-driven-reproducible-study
-channels:
-  - conda-forge
-  - pytorch
-dependencies:
-  - python=3.10
-  - pytorch
-  - torchvision
-  - pandas
-  - numpy
-  - matplotlib
-  - pip
-  - pip:
-    - openai
-    - transformers
-```
-
----
-
-## Conda 环境管理
-
-```bash
-# 创建环境
-conda env create -f environment.yml
-
-# 激活环境
-conda activate data-driven-reproducible-study
-
-# 更新环境
-conda env update -f environment.yml
-
-# 导出当前环境
-conda env export > environment.yml
-```
-
-::: {.callout-tip}
-**课程推荐**：使用 Conda + environment.yml 管理 Python 环境
-:::
 
 ---
 
@@ -498,25 +743,6 @@ pip install numpy -i https://pypi.tuna.tsinghua.edu.cn/simple
 [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 trusted-host = pypi.tuna.tsinghua.edu.cn
-```
-
----
-
-## Conda 镜像配置
-
-**编辑 `~/.condarc`**：
-
-```yaml
-channels:
-  - defaults
-show_channel_urls: true
-default_channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
-custom_channels:
-  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
-  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 ```
 
 ---
@@ -739,7 +965,7 @@ uv pip sync requirements.txt
 
 - **邮箱**：gaoch@mail.hzau.edu.cn
 - **QQ 群**：1090706962
-- **GitHub Issues**：课程相关问题欢迎提 Issue
+- **GitHub Issues**：课程相关问题 [欢迎提 Issue](https://github.com/D2RS-2026spring/AskMeAnything/issues/new?template=ama.md&title=%5BAMA%5D)
 
 ## 感谢聆听！ 🎉
 
@@ -749,7 +975,6 @@ uv pip sync requirements.txt
 - [ ] 运行 `renv::restore()` 配置 R 环境
 - [ ] 配置 Python 环境（uv 或 Conda）
 - [ ] 配置国内镜像源
-- [ ] 提交环境配置截图到 GitHub Issue
 
 **遇到问题？**
 
