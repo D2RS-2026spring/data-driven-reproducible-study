@@ -451,7 +451,7 @@
 
 ### 必备软件
 
-- **R** (>= 4.4.0) + RStudio
+- **R** (>= 4.4.0) + Positron（推荐）/VSCode/RStudio
 - **Python** (3.10) + uv
 - **Git** + GitHub账号
 - **Positron** + 相关插件
@@ -461,7 +461,7 @@
 
 ```r
 # 数据处理与可视化
-tidyverse, ggplot2, ggpubr, dplyr
+tidyverse, ggpubr
 
 # 转录组分析
 DESeq2, clusterProfiler, enrichplot

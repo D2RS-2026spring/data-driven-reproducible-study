@@ -405,10 +405,9 @@ knitr::kable(mtcars[1:6,])
 
 ```{mermaid}
 flowchart LR
-    A[自然语言描述需求] --> B{AI 生成代码}
-    B --> C[人工审查]
-    C --> D{满意?}
-    D -->|否| E[提出修改意见]
+    A[描述需求] --> B{生成代码}
+    B --> D{满意?}
+    D -->|否| E[修改意见]
     E --> B
     D -->|是| F[完成]
 ```
@@ -583,9 +582,7 @@ flowchart TD
     D --> E[开始使用]
 
     C -.-> C1[Anthropic/Claude]
-    C -.-> C2[OpenAI/GPT]
     C -.-> C3[阿里云百炼/Qwen]
-    C -.-> C4[智谱/GLM]
     C -.-> C5[月之暗面/Kimi]
 ```
 
@@ -683,13 +680,11 @@ graph TD
     A --> C["index.qmd"]
     A --> D["about.qmd"]
     A --> E["styles.css"]
-    A --> F["posts/"]
 
     B --> B1[网站配置]
     C --> C1[首页内容]
     D --> D1[关于页面]
     E --> E1[自定义样式]
-    F --> F1[博客文章]
 ```
 
 **创建与预览**：
@@ -712,9 +707,8 @@ quarto preview
 ```{mermaid}
 flowchart LR
     A[本地项目] -->|git push| B[GitHub 仓库]
-    B --> C[自动渲染]
-    C --> D[gh-pages 分支]
-    D -->|GitHub Pages| E[网站上线]
+    B --> |Publish| D[gh-pages]
+    D -->|Pages| E[网站上线]
 ```
 
 **Step 1：初始化 Git 仓库**
@@ -843,20 +837,6 @@ title: "张三的个人主页"
 
 ---
 
-## 作业检查清单
-
-| 检查项 | 完成 |
-|:-------|:----:|
-| 网站可以正常访问 | [ ] |
-| 包含个人介绍 | [ ] |
-| 使用 Quarto 创建 | [ ] |
-| 发布在 GitHub Pages | [ ] |
-| 链接提交到 ISSUE | [ ] |
-
-**截止时间**：下次课前（1 个工作日）
-
----
-
 ## 参考资源 {.smaller}
 
 | 资源 | 链接 | 说明 |
@@ -937,16 +917,14 @@ title: "张三的个人主页"
 
 ---
 
-## 联系方式
-
-- **邮箱**：gaoch@mail.hzau.edu.cn
-- **QQ 群**：1090706962
-- **GitHub Issues**：课程相关问题 [欢迎提 Issue](https://github.com/D2RS-2026spring/AskMeAnything/issues/new?template=ama.md&title=%5BAMA%5D)
-
 ## 感谢聆听！ 🎉
+
+
+- **GitHub Issues**：课程相关问题 [欢迎提 Issue](https://github.com/D2RS-2026spring/AskMeAnything/issues/new?template=ama.md&title=%5BAMA%5D)
 
 ::: {.callout-tip icon=false}
 ### 课后作业清单
 
 - [ ] 安装 Positron 和 Cline 等工具的安装配置
 - [ ] 使用他们创建一个简单的个人 Quarto 网站（首页 + 关于），发布到 GitHub Pages，提交网站链接到 [GitHub ISSUE 99](https://github.com/D2RS-2026spring/members/issues/99)
+:::
