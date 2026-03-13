@@ -31,7 +31,7 @@ format:
 
 - [ ] 安装 Positron 和 Cline
 - [ ] 创建个人 Quarto 网站
-- [ ] 发布到 GitHub Pages 并提交链接
+- [ ] 发布到 GitHub Pages 并提交链接和截图
 :::
 
 ---
@@ -48,13 +48,13 @@ format:
 
 **三个层次**：
 
-1. **结果可重复** —— 同样的代码，同样的结果
+1. **结果可重复** —— 同样的**数据、代码**，同样的结果
 2. **环境可重建** —— 任何人都能搭建相同环境
 3. **流程可自动化** —— 从数据到报告一键生成
 
 ---
 
-## 从大模型说起
+## 从环境成就了大模型的故事说起
 
 ::: {.callout-note}
 **大语言模型为什么像人一样？**
@@ -105,7 +105,7 @@ AI：什么后天？
 :::
 
 ::: {.callout-tip}
-**核心洞察**：上下文决定了模型的理解能力和输出质量
+**核心洞察**：大模型的上下文决定了模型的理解能力和输出质量
 :::
 
 ---
@@ -145,15 +145,17 @@ AI：什么后天？
 :::
 :::
 
+::: {.callout-important}
+现在的 SKILLS，Agent 等技术都以提示词为基础！
+:::
+
 ---
 
-## 编程环境的类比 {.smaller}
+## 环境是可重复性正确运行的保障 {.smaller}
 
-| 类比 | 说明 |
-|:----:|:-----|
-| **提示词** ↔ **开发环境配置** | 好的配置 = 清晰的上下文 |
-| **模型参数** ↔ **软件包版本** | 固定版本 = 可重复的结果 |
-| **上下文窗口** ↔ **依赖管理** | 完整的依赖 = 完整的功能 |
+* 说明开发环境的配置方法 = 清晰的上下文
+* 明确软件使用的版本    = 可重复的运行结果
+* 提供完整的依赖       = 实现完整的功能
 
 ::: {.callout-important}
 **可重复研究的核心**：环境 = 代码运行的"上下文"
@@ -186,7 +188,11 @@ AI：什么后天？
 :::
 
 ::: {.callout-tip}
-**科研自动化的基础**：掌握命令行是通向可重复研究的必经之路
+**科研自动化的基础**：掌握命令行是通向可重复研究的必经之路。R 和 Python 等数据分析工具运行的方式都是以命令行为基础的。
+:::
+
+::: {.callout-important}
+Quarto 提供了一个**按行执行**、**按代码块执行**的途径。
 :::
 
 ---
@@ -209,6 +215,11 @@ $ git s             # 双击 Tab
 stash    status     # 显示所有以 s 开头的子命令
 ```
 
+::: {.callout-tip}
+* `quarto -h`：提供**快捷帮助**；
+* `STDOUT` & `STDERR`：输出**信息和错误**。
+:::
+
 ---
 
 # 命令行中的环境变量
@@ -226,7 +237,6 @@ stash    status     # 显示所有以 s 开头的子命令
 | `PATH` | 可执行程序搜索路径 | `/usr/local/bin:/usr/bin` |
 | `HOME` | 用户主目录 | `/Users/username` |
 | `LANG` | 系统语言设置 | `zh_CN.UTF-8` |
-| `EDITOR` | 默认文本编辑器 | `vim` 或 `code` |
 
 **查看环境变量**：
 
@@ -301,7 +311,9 @@ Sys.setenv(MY_VAR = "value")
 
 ---
 
-## R 启动时的配置文件 {.smaller}
+# 环境变量的来源
+
+## R 中的环境变量 {.smaller}
 
 **R 启动时自动加载的文件**：
 
@@ -309,7 +321,6 @@ Sys.setenv(MY_VAR = "value")
 |:-----|:-----|:-----|
 | `.Renviron` | 用户主目录 | 设置环境变量 |
 | `.Rprofile` | 用户主目录或项目根目录 | 启动时执行的 R 代码 |
-| `Rprofile.site` | R 安装目录/etc | 系统级配置 |
 
 **项目级 `.Rprofile` 示例**：
 
@@ -412,64 +423,22 @@ api_key = os.getenv('OPENAI_API_KEY')
 ## 环境变量层次总结 {.smaller}
 
 ```{mermaid}
-flowchart TB
-    subgraph 系统层
-        A1[PATH] --> A2[HOME]
-        A2 --> A3[LANG]
-    end
-
-    subgraph R层
-        B1[.Renviron] --> B2[.Rprofile]
-        B2 --> B3["renv/"]
-    end
-
-    subgraph Python层
-        C1[.env] --> C2["venv/"]
-        C2 --> C3[pyproject.toml]
-    end
-
-    subgraph 系统级
-        D1[Docker容器]
-    end
-
-    系统层 --> R层
-    系统层 --> Python层
-    系统层 --> 系统级
+flowchart LR
+    O{启动} --> A[系统层]
+    A --> B[用户层]
+    B --> C[语言层]
+    C --> D[项目层]
 ```
 
 ::: {.callout-important}
 **核心原则**：每一层都建立在前一层之上，形成完整的环境隔离
 :::
 
----
-
-## 环境管理的挑战
-
-::: {.columns}
-::: {.column}
-**常见问题**：
-
-- "在我电脑上能跑"
-- 软件包版本冲突
-- 系统依赖缺失
-- 路径硬编码
-:::
-
-::: {.column}
-**根本原因**：
-
-- 包版本未记录
-- 系统环境差异
-- 配置未文档化
-- 随机种子未固定
-:::
-:::
-
-::: {.callout-caution}
-造成这种现象的根源在哪里？
-:::
+这就好像我们在这里上课（继承了“学院-年级-专业-方向-课题”等资源）。
 
 ---
+
+# 系统环境管理的挑战
 
 ## 硬件架构与操作系统 {.smaller}
 
@@ -506,36 +475,6 @@ flowchart TB
 
 ---
 
-## Dockerfile 示例 {.smaller}
-
-**课程项目的 Docker 配置**：
-
-```dockerfile
-# 基于官方 R 镜像
-FROM rocker/r-ver:4.3.0
-
-# 安装系统依赖
-RUN apt-get update && apt-get install -y \
-    libcurl4-openssl-dev \
-    libssl-dev \
-    libxml2-dev
-
-# 安装 R 包
-RUN R -e "install.packages('renv')"
-
-# 复制项目文件
-COPY . /project
-WORKDIR /project
-
-# 恢复 R 环境
-RUN R -e "renv::restore()"
-
-# 渲染 Quarto 文档
-CMD ["quarto", "render"]
-```
-
----
-
 ## Docker 常用命令 {.smaller}
 
 | 命令 | 作用 |
@@ -544,7 +483,10 @@ CMD ["quarto", "render"]
 | `docker run myimage` | 运行容器 |
 | `docker run -it myimage bash` | 交互式进入容器 |
 | `docker ps` | 查看运行中的容器 |
-| `docker-compose up` | 启动多容器应用 |
+| `docker compose up` | 启动多容器应用 |
+
+::: {.columns}
+::: {.column}
 
 **Docker 的优势**：
 
@@ -552,6 +494,137 @@ CMD ["quarto", "render"]
 - ✅ 一次构建，到处运行
 - ✅ 版本控制（镜像标签）
 - ✅ 云端部署友好
+
+:::
+::: {.column}
+**Docker 的劣势**：
+
+- ❎ 占空间
+- ❎ 耗资源
+- ❎ 都是临时文件
+:::
+:::
+<!-- end columns -->
+
+---
+
+# 开发环境管理的挑战
+
+## 开发环境的一致性 {.smaller}
+
+**大多数情况下，在环境变量之外，我们不需要过分关注系统管理的调整！**
+
+::: {.callout-tip}
+**科研场景的真实需求** 🔬
+
+科研中的环境可重复性，本质上是**语言级别**的包版本管理问题（*语言本身是跨平台的*）。
+
+- 重建 **R 包** 的版本组合
+- 重建 **Python** 虚拟环境
+- 保证分析脚本可重复运行
+- 团队间共享开发环境
+
+✅ 只需包管理工具即可
+:::
+
+---
+
+## 为什么环境重建很复杂？ {.smaller}
+
+::: {.columns}
+::: {.column}
+
+::: {.callout-note}
+**依赖地狱（Dependency Hell）**：当多个包对同一依赖有不同版本需求时，就会产生冲突。
+:::
+
+:::
+::: {.column}
+
+
+**依赖的层次结构**：
+
+```{mermaid}
+flowchart TD
+    A[我的分析脚本] --> B[ggplot2 3.5.0]
+    A --> C[Seurat 5.0]
+    B --> D[rlang >= 1.1.0]
+    C --> D
+    C --> E[Matrix 1.6.x]
+    B --> F[scales 1.3.0]
+    E --> G["BLAS/LAPACK\n（系统库）"]
+    F --> D
+    style G fill:#f9f,stroke:#333
+```
+:::
+:::
+<!-- end columns -->
+
+::: {.callout-important}
+安装**一个包**，实际上可能需要解析和安装**数十个**依赖包，且每个依赖都有版本约束！
+:::
+
+---
+
+## 依赖冲突：真实的痛点 {.smaller}
+
+**典型场景**：半年前的分析代码，今天无法运行。我电脑能运行，你电脑无法运行。
+
+**常见的依赖问题**：
+
+| 问题类型 | 描述 | 后果 |
+|:--------|:-----|:-----|
+| （大）版本升级 | 包的 API 发生变化 | 代码报错或结果不同 |
+| 间接依赖 | 依赖的依赖版本冲突 | 安装失败 |
+| 系统依赖 | 需要特定系统库（如 OpenSSL） | 跨平台不兼容 |
+| 包被废弃 | 官方停止维护或下架 | 无法安装 |
+
+```r
+# 错误示例：版本升级导致函数接口变化
+library(dplyr)
+
+# dplyr 0.8.x 的写法
+df %>% group_by(group) %>% summarise(mean = mean(value))
+
+# dplyr 1.0+ 的写法（新增 .groups 参数，旧代码产生警告甚至错误）
+df %>% group_by(group) %>% summarise(mean = mean(value), .groups = "drop")
+```
+
+---
+
+## 因此，我们需要专门的工具 {.smaller}
+
+**包管理工具的核心功能**：
+
+::: {.columns}
+::: {.column width="55%"}
+1. 📸 **记录**当前环境中所有包的**精确版本**
+2. 🔒 **锁定**依赖关系，生成锁定文件
+3. 🔄 **恢复**到完全相同的环境状态
+4. 🧩 **隔离**不同项目的依赖，避免互相干扰
+:::
+::: {.column width="45%"}
+```{mermaid}
+flowchart LR
+    A[开发环境] -->|snapshot/freeze| B[锁定文件]
+    B -->|restore/sync| C[协作者环境]
+    B -->|restore/sync| D[服务器环境]
+    B -->|restore/sync| E[未来的自己]
+```
+:::
+:::
+
+**各语言的解决方案**：
+
+| 语言 | 工具 | 锁定文件 |
+|:-----|:-----|:---------|
+| **R** | `renv` | `renv.lock` |
+| **Python** | `uv` / `venv` + pip | `requirements.txt` |
+| **Python** | `conda` | `environment.yml` |
+
+::: {.callout-important}
+接下来，我们将分别介绍 R 的 **renv** 和 Python 的 **uv**
+:::
 
 ---
 
@@ -562,7 +635,7 @@ CMD ["quarto", "render"]
 ::: {.callout-note}
 **renv = Reproducible Environment for R**
 
-R 的包管理工具，类似 Python 的 venv/conda
+R 的包管理工具，记录 R 和 R packages 的版本，复现 R 运行环境。
 :::
 
 **解决的问题**：
@@ -598,6 +671,8 @@ flowchart LR
 
 ## renv 核心命令
 
+`renv` 是一个 R 的软件包，使用 `install.packages("renv")` 安装后使用。
+
 | 命令 | 作用 |
 |:-----|:-----|
 | `renv::init()` | 初始化项目环境 |
@@ -610,12 +685,14 @@ flowchart LR
 
 ## renv 实战 {.smaller}
 
+在 Positron 项目的 R 终端中，输入下列命令：
+
 ```r
 # 1. 初始化项目环境
 renv::init()
 
 # 2. 安装需要的包
-install.packages("tidyverse")
+install.packages("dplyr")
 install.packages("ggplot2")
 
 # 3. 记录环境状态
@@ -634,7 +711,7 @@ renv::restore()
 
 # Python 包管理：uv
 
-## 为什么推荐 uv？
+## 为什么推荐 uv？ {.smaller}
 
 ::: {.callout-note}
 **uv = Ultra-fast Python package manager**
@@ -646,12 +723,14 @@ renv::restore()
 
 - ⚡ 极速安装（并行下载）
 - 🔒 内置虚拟环境管理
-- 📋 锁定文件支持（requirements.txt / pyproject.toml）
+- 📋 锁定文件支持（`requirements.txt` / `pyproject.toml`）
 - 🐍 支持 Python 版本管理
 
 ---
 
-## uv 核心命令
+## uv 核心命令 {.smaller}
+
+uv 是一个**终端应用程序**，需要先 [下载安装](https://docs.astral.sh/uv/getting-started/installation/)。
 
 ::: {.callout-tip}
 使用 uv 进行 Python 环境管理是课程的推荐方式。
@@ -667,7 +746,7 @@ renv::restore()
 
 ---
 
-## uv 实战
+## uv 实战 {.smaller}
 
 ```bash
 # 1. 创建虚拟环境
@@ -678,7 +757,7 @@ source .venv/bin/activate  # Linux/Mac
 # 或 .venv\Scripts\activate  # Windows
 
 # 3. 安装包
-uv pip install pandas numpy matplotlib
+uv pip install matplotlib
 
 # 4. 导出依赖
 uv pip freeze > requirements.txt
@@ -689,7 +768,7 @@ uv pip install -r requirements.txt
 
 ---
 
-# 国内镜像源配置
+# 终端安装程序时使用镜像加速
 
 ## 为什么需要镜像？
 
@@ -749,7 +828,7 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
 
 # renv vs uv 对比
 
-## 包管理工具对比
+## 包管理工具对比 {.smaller}
 
 | 特性 | R (renv) | Python (uv/conda) |
 |:-----|:---------|:------------------|
@@ -833,7 +912,7 @@ uv pip sync requirements.txt
 
 ---
 
-## 任务 3：配置国内镜像（10 分钟）
+## 任务 3：配置国内镜像（10 分钟）[选做]
 
 **步骤**：
 
@@ -874,14 +953,13 @@ uv pip sync requirements.txt
 
 ---
 
-## 环境检查清单
+## 对环境可重复行进行检查
 
 **提交项目前，确认**：
 
-- [ ] `renv.lock` 或 `requirements.txt` 已更新
-- [ ] 依赖文件已提交到 Git
-- [ ] 在干净环境测试通过
 - [ ] 文档包含环境搭建说明
+- [ ] 文件已提交到 Git
+- [ ] `renv.lock` 或 `requirements.txt` 已更新
 - [ ] 随机种子已固定（如需要）
 
 ---
@@ -891,39 +969,13 @@ uv pip sync requirements.txt
 ## 作业要求 {.smaller}
 
 ::: {.callout-important}
-**作业：配置课程开发环境**
+**作业：自选一个可重复研究项目**
 :::
 
-::: {.columns}
-::: {.column}
-**R 环境**：
-
-1. 在本课程仓库运行 `renv::restore()`
-2. 确认所有包安装成功
-3. 运行 `quarto render` 测试
-:::
-
-::: {.column}
-**Python 环境**：
-
-1. 创建 Conda 环境：`conda env create -f environment.yml`
-2. 激活环境并测试 PyTorch
-3. 导出当前环境配置
-:::
-:::
-
----
-
-## 作业提交
-
-**提交方式**：
-
-1. 在 GitHub 创建新 Issue
-2. 标题：`[第4次课作业] 学号-姓名`
-3. 内容包含：
-   - 环境配置截图（R 包列表、Python 版本）
-   - 遇到的问题及解决方法
-   - 建议或反馈
+* 以课题组为单位，3 - 5 人为一个研究小组
+* 选择一个与自己小组方向相关的研究论文（论文、项目）
+* 评估并确保其数据、代码、环境是否可复现
+* [使用 ISSUE 提交到 projects 仓库中](https://github.com/D2RS-2026spring/projects/issues/new/choose)
 
 **截止时间**：下次课前
 
@@ -931,11 +983,11 @@ uv pip sync requirements.txt
 
 # 课程总结
 
-## 今日要点
+## 今日要点 {.smaller}
 
 ::: {.columns}
 ::: {.column width="50%"}
-1. ✅ **环境 = 上下文** —— 决定代码可重复性
+1. ✅ **环境变量** —— 决定代码可重复性
 2. ✅ **命令行基础** —— 自动补齐、帮助系统、权限
 3. ✅ **renv** —— R 环境管理工具
 :::
@@ -952,33 +1004,17 @@ uv pip sync requirements.txt
 
 **第 5 次课：分组数据统计分析实战**
 
-- ggplot2 图形语法
+- `ggplot2` 图形语法
 - 参数 vs 非参数方法
 - t检验、方差分析
-- ggpubr 包应用
+- `ggpubr` 包应用
 
 ---
 
 ## 答疑与总结
 
-**联系方式**：
+**遇到问题？**
 
 - **邮箱**：gaoch@mail.hzau.edu.cn
 - **QQ 群**：1090706962
 - **GitHub Issues**：课程相关问题 [欢迎提 Issue](https://github.com/D2RS-2026spring/AskMeAnything/issues/new?template=ama.md&title=%5BAMA%5D)
-
-## 感谢聆听！ 🎉
-
-::: {.callout-tip icon=false}
-### 课后作业清单
-
-- [ ] 运行 `renv::restore()` 配置 R 环境
-- [ ] 配置 Python 环境（uv 或 Conda）
-- [ ] 配置国内镜像源
-
-**遇到问题？**
-
-- 💬 QQ 群：1090706962
-- 🐛 GitHub Issues：https://github.com/D2RS-2026spring/members/issues
-- 📧 邮箱：gaoch@mail.hzau.edu.cn
-:::
